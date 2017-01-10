@@ -1,0 +1,197 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:41:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\clock_display.obj TO .\Objects\clock_display PRINT (.\Listings\clock_display.m51) 
+>> RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\clock_display.obj (CLOCK_DISPLAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\clock_display (CLOCK_DISPLAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0033H     UNIT         ?DT?CLOCK_DISPLAY
+            DATA    003BH     000AH     UNIT         _DATA_GROUP_
+            IDATA   0045H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     009CH     UNIT         ?PR?_DISPLAY?CLOCK_DISPLAY
+            CODE    089CH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0928H     0074H     UNIT         ?PR?TIMER0?CLOCK_DISPLAY
+            CODE    099CH     0066H     UNIT         ?C?LIB_CODE
+            CODE    0A02H     0042H     UNIT         ?C_INITSEG
+            CODE    0A44H     002BH     UNIT         ?PR?MAIN?CLOCK_DISPLAY
+            CODE    0A6FH     001EH     UNIT         ?PR?_DELAY?CLOCK_DISPLAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\clock_display (CLOCK_DISPLAY)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?CLOCK_DISPLAY
+  +--> ?C_INITSEG
+
+?PR?MAIN?CLOCK_DISPLAY             -----    -----
+  +--> ?PR?_DISPLAY?CLOCK_DISPLAY
+
+?PR?_DISPLAY?CLOCK_DISPLAY         003BH    0006H
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:41:23  PAGE 2
+
+
+  +--> ?PR?_DELAY?CLOCK_DISPLAY
+
+?PR?_DELAY?CLOCK_DISPLAY           0041H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\clock_display (CLOCK_DISPLAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CLOCK_DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:0008H         PUBLIC        char_codes
+  C:0A77H         PUBLIC        _delay
+  B:00A0H.2       PUBLIC        hund_tr_ca
+  C:0A44H         PUBLIC        main
+  B:00A0H.1       PUBLIC        tens_tr_ca
+  D:001CH         PUBLIC        count
+  B:00A0H.3       PUBLIC        thou_tr_ca
+  B:00A0H.0       PUBLIC        unit_tr_ca
+  D:001EH         PUBLIC        time
+  D:0089H         PUBLIC        TMOD
+  D:0022H         PUBLIC        num_codes
+  D:002CH         PUBLIC        dot
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:0928H         PUBLIC        timer0
+  B:0088H.4       PUBLIC        TR0
+  D:002DH         PUBLIC        i
+  D:002EH         PUBLIC        j
+  D:002FH         PUBLIC        k
+  D:0030H         PUBLIC        l
+  C:0800H         PUBLIC        _display
+  D:0031H         PUBLIC        alpha_codes
+  C:0A6FH         SYMBOL        L?0017
+  -------         PROC          L?0016
+  -------         ENDPROC       L?0016
+  C:0A6FH         SYMBOL        L?0017
+  -------         PROC          _DELAY
+  D:0041H         SYMBOL        d
+  C:0A77H         LINE#         4
+  C:0A7FH         LINE#         5
+  C:0A7FH         LINE#         6
+  C:0A8CH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAY
+  D:003BH         SYMBOL        codes
+  D:003EH         SYMBOL        datas
+  C:0800H         LINE#         12
+  C:0806H         LINE#         13
+  C:0806H         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:41:23  PAGE 3
+
+
+  C:0822H         LINE#         15
+  C:0824H         LINE#         16
+  C:0827H         LINE#         17
+  C:0829H         LINE#         19
+  C:0848H         LINE#         20
+  C:084AH         LINE#         21
+  C:084DH         LINE#         22
+  C:084FH         LINE#         24
+  C:086EH         LINE#         25
+  C:0870H         LINE#         26
+  C:0873H         LINE#         27
+  C:0875H         LINE#         29
+  C:0894H         LINE#         30
+  C:0896H         LINE#         31
+  C:0899H         LINE#         32
+  C:089BH         LINE#         33
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  C:0A44H         LINE#         14
+  C:0A44H         LINE#         15
+  C:0A44H         LINE#         16
+  C:0A47H         LINE#         17
+  C:0A4AH         LINE#         18
+  C:0A4DH         LINE#         19
+  C:0A50H         LINE#         20
+  C:0A52H         LINE#         22
+  C:0A5BH         LINE#         24
+  C:0A5BH         LINE#         25
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0
+  C:0928H         LINE#         28
+  C:0931H         LINE#         30
+  C:0934H         LINE#         31
+  C:0937H         LINE#         33
+  C:0947H         LINE#         34
+  C:0947H         LINE#         35
+  C:094BH         LINE#         36
+  C:094DH         LINE#         37
+  C:0959H         LINE#         38
+  C:0965H         LINE#         39
+  C:0971H         LINE#         40
+  C:097BH         LINE#         41
+  C:0987H         LINE#         42
+  C:098AH         LINE#         43
+  C:098AH         LINE#         45
+  C:0992H         LINE#         46
+  C:0995H         LINE#         47
+  -------         ENDPROC       TIMER0
+  -------         ENDMOD        CLOCK_DISPLAY
+
+  -------         MODULE        ?C?CLDPTR
+  C:099CH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:09B5H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:41:23  PAGE 4
+
+
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:09EBH         PUBLIC        ?C?LLDIIDATA
+  C:09E2H         PUBLIC        ?C?LLDIIDATA1
+  C:09E4H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 019DH BYTE (20%) *
+******************************************************************************
+
+Program Size: data=70.0 xdata=0 code=659
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

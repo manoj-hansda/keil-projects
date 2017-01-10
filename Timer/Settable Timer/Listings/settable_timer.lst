@@ -1,0 +1,137 @@
+C51 COMPILER V9.54   SETTABLE_TIMER                                                        11/12/2015 21:44:09 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SETTABLE_TIMER
+OBJECT MODULE PLACED IN .\Objects\settable_timer.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE settable_timer.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Lis
+                    -tings\settable_timer.lst) TABS(2) OBJECT(.\Objects\settable_timer.obj)
+
+line level    source
+
+   1          /******************************************
+   2          * Objective: Settable timer on 16x2 LCD
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          ********************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          #include "../../functions/lcd.h"             // contains send_cmd(), send_data(), send_msg()
+  11          
+  12          void key_action(unsigned char);
+  13          
+  14          unsigned char i=48,j=48,k=48,l=48,m=48,count=0,pos=0;
+  15          unsigned char *key_pressed, g=0, flag=0, txt[4];
+  16          
+  17          void main()
+  18          {
+  19   1        delay(1275);
+  20   1        lcd_init();
+  21   1      
+  22   1        send_msg("Set Time:");
+  23   1      
+  24   1        send_data('m');
+  25   1        send_data('m');
+  26   1        send_data(':');
+  27   1        send_data('s');
+  28   1        send_data('s');
+  29   1      
+  30   1        send_cmd(0xC0);
+  31   1        send_data(l);
+  32   1        send_data(k);
+  33   1        send_data(':');
+  34   1        send_data(j);
+  35   1        send_data(i);
+  36   1        send_data(':');
+  37   1        send_data(m);
+  38   1      
+  39   1        send_cmd(0x89);
+  40   1        while(1)
+  41   1        {
+  42   2          key_pressed=key_detect();
+  43   2          if(key_pressed[0]!='\0')
+  44   2          {
+  45   3            if(flag==0)
+  46   3            key_action(key_pressed[0]);
+  47   3          }
+  48   2          else
+  49   2            flag=0;
+  50   2      
+  51   2          if(g==4)
+  52   2            break;
+  53   2        }
+  54   1      
+C51 COMPILER V9.54   SETTABLE_TIMER                                                        11/12/2015 21:44:09 PAGE 2   
+
+  55   1        send_cmd(0x0C);
+  56   1        IE=0x83;
+  57   1      
+  58   1        while(1);
+  59   1      }
+  60          
+  61          void timer0() interrupt 1
+  62          {
+  63   1        TH0=0x3C;
+  64   1        TL0=0xB0;
+  65   1      
+  66   1        if(count++==1)
+  67   1        {
+  68   2          count=0;
+  69   2          m++;
+  70   2          if(m>57)  { m=48; i++;  }
+  71   2          if(i>57)  { i=48; j++;  }
+  72   2          if(j>53)  { j=48; k++;  }
+  73   2          if(k>57)  { k=48; l++;  }
+  74   2          if(l>53)  { l=48; }
+  75   2      
+  76   2          if(i==txt[3] && j==txt[2] && k==txt[1] && l==txt[0])
+  77   2          {
+  78   3            TR0=0;
+  79   3          }
+  80   2      
+  81   2          send_cmd(0xC0);
+  82   2          send_data(l);
+  83   2          send_data(k);
+  84   2          send_data(':');
+  85   2          send_data(j);
+  86   2          send_data(i);
+  87   2          send_data(':');
+  88   2          send_data(m);
+  89   2        }
+  90   1      }
+  91          
+  92          void stop() interrupt 0
+  93          {
+  94   1        TMOD=0x01;
+  95   1        TH0=0x3C;
+  96   1        TL0=0xB0;
+  97   1        TR0=1;
+  98   1      }
+  99          
+ 100          void key_action(unsigned char value)
+ 101          {
+ 102   1          txt[pos]=value;
+ 103   1          pos++;
+ 104   1          send_data(value);
+ 105   1          flag=1;
+ 106   1          g++;
+ 107   1          if(g==2)
+ 108   1            send_cmd(0x8C);
+ 109   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    747    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.54   SETTABLE_TIMER                                                        11/12/2015 21:44:09 PAGE 3   
+
+   DATA SIZE        =     16      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

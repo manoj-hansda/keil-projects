@@ -1,0 +1,3 @@
+".\Objects\pass_fail.obj" 
+TO ".\Objects\pass_fail" 
+PRINT(".\Listings\pass_fail.m51") RAMSIZE(256) 

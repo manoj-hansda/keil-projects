@@ -1,0 +1,3 @@
+".\Objects\fixed_display.obj" 
+TO ".\Objects\fixed_display" 
+PRINT(".\Listings\fixed_display.m51") RAMSIZE(256) 

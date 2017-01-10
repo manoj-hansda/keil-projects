@@ -1,0 +1,368 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:44:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\settable_timer.obj TO .\Objects\settable_timer PRINT (.\Listings\settable_timer.m5
+>> 1) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\settable_timer.obj (SETTABLE_TIMER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\settable_timer (SETTABLE_TIMER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0010H     UNIT         ?DT?SETTABLE_TIMER
+            DATA    0018H     000CH     UNIT         _DATA_GROUP_
+            IDATA   0024H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     0005H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     00E4H     UNIT         ?PR?KEY_DETECT?SETTABLE_TIMER
+            CODE    08E4H     00AFH     UNIT         ?PR?TIMER0?SETTABLE_TIMER
+            CODE    0993H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0A1FH     0083H     UNIT         ?PR?MAIN?SETTABLE_TIMER
+            CODE    0AA2H     0066H     UNIT         ?C?LIB_CODE
+            CODE    0B08H     0032H     UNIT         ?PR?_SEND_MSG?SETTABLE_TIMER
+            CODE    0B3AH     0023H     UNIT         ?PR?LCD_INIT?SETTABLE_TIMER
+            CODE    0B5DH     0020H     UNIT         ?PR?_DELAY?SETTABLE_TIMER
+            CODE    0B7DH     0020H     UNIT         ?PR?_SEND_DATA?SETTABLE_TIMER
+            CODE    0B9DH     001CH     UNIT         ?PR?_KEY_ACTION?SETTABLE_TIMER
+            CODE    0BB9H     001CH     UNIT         ?C_INITSEG
+            CODE    0BD5H     0018H     UNIT         ?PR?_SEND_CMD?SETTABLE_TIMER
+            CODE    0BEDH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0C02H     000CH     UNIT         ?PR?STOP?SETTABLE_TIMER
+            CODE    0C0EH     000AH     UNIT         ?CO?SETTABLE_TIMER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\settable_timer (SETTABLE_TIMER)
+
+
+SEGMENT                                  DATA_GROUP 
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 2
+
+
+  +--> CALLED SEGMENT                  START    LENGTH
+------------------------------------------------------
+?PR?TIMER0?SETTABLE_TIMER              -----    -----
+  +--> ?PR?_SEND_CMD?SETTABLE_TIMER
+  +--> ?PR?_SEND_DATA?SETTABLE_TIMER
+
+?PR?_SEND_CMD?SETTABLE_TIMER           -----    -----
+  +--> ?PR?_DELAY?SETTABLE_TIMER
+
+?PR?_DELAY?SETTABLE_TIMER              0020H    0004H
+
+?PR?_SEND_DATA?SETTABLE_TIMER          -----    -----
+  +--> ?PR?_DELAY?SETTABLE_TIMER
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                          -----    -----
+  +--> ?PR?MAIN?SETTABLE_TIMER
+  +--> ?C_INITSEG
+
+?PR?MAIN?SETTABLE_TIMER                -----    -----
+  +--> ?PR?_DELAY?SETTABLE_TIMER
+  +--> ?PR?LCD_INIT?SETTABLE_TIMER
+  +--> ?CO?SETTABLE_TIMER
+  +--> ?PR?_SEND_MSG?SETTABLE_TIMER
+  +--> ?PR?_SEND_DATA?SETTABLE_TIMER
+  +--> ?PR?_SEND_CMD?SETTABLE_TIMER
+  +--> ?PR?KEY_DETECT?SETTABLE_TIMER
+  +--> ?PR?_KEY_ACTION?SETTABLE_TIMER
+
+?PR?LCD_INIT?SETTABLE_TIMER            -----    -----
+  +--> ?PR?_SEND_CMD?SETTABLE_TIMER
+
+?PR?_SEND_MSG?SETTABLE_TIMER           001CH    0004H
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_SEND_DATA?SETTABLE_TIMER
+
+?PR?KEY_DETECT?SETTABLE_TIMER          001CH    0004H
+
+?PR?_KEY_ACTION?SETTABLE_TIMER         -----    -----
+  +--> ?PR?_SEND_DATA?SETTABLE_TIMER
+  +--> ?PR?_SEND_CMD?SETTABLE_TIMER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\settable_timer (SETTABLE_TIMER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SETTABLE_TIMER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:0090H.0       PUBLIC        row1
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 3
+
+
+  B:0090H.1       PUBLIC        row2
+  B:0090H.2       PUBLIC        row3
+  B:0090H.3       PUBLIC        row4
+  D:00A8H         PUBLIC        IE
+  C:0B67H         PUBLIC        _delay
+  D:0008H         PUBLIC        flag
+  D:0009H         PUBLIC        key_pressed
+  C:0A1FH         PUBLIC        main
+  C:0800H         PUBLIC        key_detect
+  C:0B7DH         PUBLIC        _send_data
+  D:000CH         PUBLIC        count
+  C:0B9DH         PUBLIC        _key_action
+  D:0089H         PUBLIC        TMOD
+  C:0BD5H         PUBLIC        _send_cmd
+  C:0C02H         PUBLIC        stop
+  C:0B3AH         PUBLIC        lcd_init
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:000DH         PUBLIC        pos
+  B:00A0H.5       PUBLIC        en
+  C:08E4H         PUBLIC        timer0
+  C:0B08H         PUBLIC        _send_msg
+  B:0088H.4       PUBLIC        TR0
+  D:000EH         PUBLIC        txt
+  B:00A0H.4       PUBLIC        rs
+  D:0012H         PUBLIC        g
+  D:0013H         PUBLIC        i
+  D:0014H         PUBLIC        j
+  D:0015H         PUBLIC        k
+  D:0016H         PUBLIC        l
+  D:0017H         PUBLIC        m
+  B:0090H.5       PUBLIC        col1
+  B:0090H.6       PUBLIC        col2
+  B:0090H.7       PUBLIC        col3
+  -------         PROC          KEY_DETECT
+  -------         DO            
+  D:001CH         SYMBOL        key
+  -------         ENDDO         
+  C:0800H         LINE#         6
+  C:0800H         LINE#         7
+  C:0800H         LINE#         9
+  C:0809H         LINE#         11
+  C:0811H         LINE#         12
+  C:0820H         LINE#         13
+  C:082FH         LINE#         14
+  C:083EH         LINE#         16
+  C:0846H         LINE#         17
+  C:0855H         LINE#         18
+  C:0864H         LINE#         19
+  C:0873H         LINE#         21
+  C:087BH         LINE#         22
+  C:088AH         LINE#         23
+  C:0899H         LINE#         24
+  C:08A8H         LINE#         26
+  C:08B0H         LINE#         27
+  C:08BFH         LINE#         28
+  C:08CEH         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 4
+
+
+  C:08DDH         LINE#         31
+  C:08E3H         LINE#         32
+  -------         ENDPROC       KEY_DETECT
+  C:0B61H         SYMBOL        L?0045
+  C:0B63H         SYMBOL        L?0046
+  -------         PROC          L?0044
+  -------         ENDPROC       L?0044
+  C:0B61H         SYMBOL        L?0045
+  C:0B63H         SYMBOL        L?0046
+  -------         PROC          _DELAY
+  D:0020H         SYMBOL        d
+  C:0B67H         LINE#         4
+  C:0B6FH         LINE#         5
+  C:0B6FH         LINE#         6
+  C:0B7CH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          LCD_INIT
+  C:0B3AH         LINE#         14
+  C:0B3AH         LINE#         15
+  C:0B3AH         LINE#         16
+  C:0B49H         LINE#         17
+  C:0B4EH         LINE#         18
+  C:0B53H         LINE#         19
+  C:0B58H         LINE#         20
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _SEND_CMD
+  D:0003H         SYMBOL        value
+  C:0BD5H         LINE#         23
+  C:0BD7H         LINE#         24
+  C:0BD7H         LINE#         25
+  C:0BD9H         LINE#         26
+  C:0BDBH         LINE#         27
+  C:0BE0H         LINE#         28
+  C:0BE5H         LINE#         29
+  C:0BE7H         LINE#         30
+  C:0BECH         LINE#         31
+  -------         ENDPROC       _SEND_CMD
+  -------         PROC          _SEND_DATA
+  D:0003H         SYMBOL        value
+  C:0B7DH         LINE#         33
+  C:0B7FH         LINE#         34
+  C:0B7FH         LINE#         35
+  C:0B81H         LINE#         36
+  C:0B83H         LINE#         37
+  C:0B8CH         LINE#         38
+  C:0B91H         LINE#         39
+  C:0B93H         LINE#         40
+  C:0B9CH         LINE#         41
+  -------         ENDPROC       _SEND_DATA
+  -------         PROC          _SEND_MSG
+  D:001CH         SYMBOL        msg
+  -------         DO            
+  D:001FH         SYMBOL        i
+  -------         ENDDO         
+  C:0B08H         LINE#         43
+  C:0B0EH         LINE#         44
+  C:0B0EH         LINE#         46
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 5
+
+
+  C:0B22H         LINE#         47
+  C:0B39H         LINE#         48
+  -------         ENDPROC       _SEND_MSG
+  -------         PROC          MAIN
+  C:0A1FH         LINE#         17
+  C:0A1FH         LINE#         18
+  C:0A1FH         LINE#         19
+  C:0A26H         LINE#         20
+  C:0A29H         LINE#         22
+  C:0A32H         LINE#         24
+  C:0A37H         LINE#         25
+  C:0A3CH         LINE#         26
+  C:0A41H         LINE#         27
+  C:0A46H         LINE#         28
+  C:0A4BH         LINE#         30
+  C:0A50H         LINE#         31
+  C:0A55H         LINE#         32
+  C:0A5AH         LINE#         33
+  C:0A5FH         LINE#         34
+  C:0A64H         LINE#         35
+  C:0A69H         LINE#         36
+  C:0A6EH         LINE#         37
+  C:0A73H         LINE#         39
+  C:0A78H         LINE#         40
+  C:0A78H         LINE#         41
+  C:0A78H         LINE#         42
+  C:0A81H         LINE#         43
+  C:0A87H         LINE#         44
+  C:0A87H         LINE#         45
+  C:0A8BH         LINE#         46
+  C:0A8EH         LINE#         47
+  C:0A90H         LINE#         49
+  C:0A93H         LINE#         51
+  C:0A98H         LINE#         52
+  C:0A98H         LINE#         55
+  C:0A9DH         LINE#         56
+  C:0AA0H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0
+  C:08E4H         LINE#         61
+  C:08F7H         LINE#         63
+  C:08FAH         LINE#         64
+  C:08FDH         LINE#         66
+  C:0906H         LINE#         67
+  C:0906H         LINE#         68
+  C:0908H         LINE#         69
+  C:090AH         LINE#         70
+  C:0916H         LINE#         71
+  C:0922H         LINE#         72
+  C:092EH         LINE#         73
+  C:093AH         LINE#         74
+  C:0944H         LINE#         76
+  C:0958H         LINE#         77
+  C:0958H         LINE#         78
+  C:095AH         LINE#         79
+  C:095AH         LINE#         81
+  C:095FH         LINE#         82
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 6
+
+
+  C:0964H         LINE#         83
+  C:0969H         LINE#         84
+  C:096EH         LINE#         85
+  C:0973H         LINE#         86
+  C:0978H         LINE#         87
+  C:097DH         LINE#         88
+  C:0982H         LINE#         89
+  C:0982H         LINE#         90
+  -------         ENDPROC       TIMER0
+  -------         PROC          STOP
+  C:0C02H         LINE#         92
+  C:0C02H         LINE#         94
+  C:0C05H         LINE#         95
+  C:0C08H         LINE#         96
+  C:0C0BH         LINE#         97
+  C:0C0DH         LINE#         98
+  -------         ENDPROC       STOP
+  -------         PROC          _KEY_ACTION
+  D:0007H         SYMBOL        value
+  C:0B9DH         LINE#         100
+  C:0B9DH         LINE#         101
+  C:0B9DH         LINE#         102
+  C:0BA4H         LINE#         103
+  C:0BA6H         LINE#         104
+  C:0BA9H         LINE#         105
+  C:0BACH         LINE#         106
+  C:0BAEH         LINE#         107
+  C:0BB3H         LINE#         108
+  C:0BB8H         LINE#         109
+  -------         ENDPROC       _KEY_ACTION
+  -------         ENDMOD        SETTABLE_TIMER
+
+  -------         MODULE        ?C?CLDPTR
+  C:0AA2H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0ABBH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0AF1H         PUBLIC        ?C?LLDIIDATA
+  C:0AE8H         PUBLIC        ?C?LLDIIDATA1
+  C:0AEAH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        STRLEN
+  C:0BEDH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DELAY?SETTABLE_TIMER
+    CALLER1: ?PR?TIMER0?SETTABLE_TIMER
+    CALLER2: ?C_C51STARTUP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0316H BYTE (38%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:44:09  PAGE 7
+
+
+******************************************************************************
+
+Program Size: data=37.0 xdata=0 code=1057
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

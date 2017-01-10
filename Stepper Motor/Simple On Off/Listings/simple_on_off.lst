@@ -1,0 +1,49 @@
+C51 COMPILER V9.54   SIMPLE_ON_OFF                                                         11/05/2015 22:33:18 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SIMPLE_ON_OFF
+OBJECT MODULE PLACED IN .\Objects\simple_on_off.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE simple_on_off.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\simple_on_off.lst) TABS(2) OBJECT(.\Objects\simple_on_off.obj)
+
+line level    source
+
+   1          /**********************************************
+   2          * Objective: Simple stepper motor on and off
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          ***********************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          #define ON  0
+  13          #define OFF 1
+  14          
+  15          void main()
+  16          {
+  17   1        coil1=ON; coil2=OFF; coil3=OFF; coil4=OFF;
+  18   1        delay(30000);
+  19   1        coil1=OFF; coil2=ON; coil3=OFF; coil4=OFF;
+  20   1        delay(30000);
+  21   1        coil1=OFF; coil2=OFF; coil3=ON; coil4=OFF;
+  22   1        delay(30000);
+  23   1        coil1=OFF; coil2=OFF; coil3=OFF; coil4=ON;
+  24   1        delay(30000);
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     82    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

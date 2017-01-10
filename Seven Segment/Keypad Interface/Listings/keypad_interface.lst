@@ -1,0 +1,50 @@
+C51 COMPILER V9.54   KEYPAD_INTERFACE                                                      11/12/2015 21:14:59 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE KEYPAD_INTERFACE
+OBJECT MODULE PLACED IN .\Objects\keypad_interface.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE keypad_interface.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\keypad_interface.lst) TABS(2) OBJECT(.\Objects\keypad_interface.obj)
+
+line level    source
+
+   1          /************************************************************
+   2          * Objective: Interface keypad with seven segment displays
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          #include "../../functions/seven_segment.h"   // contains display()
+  11          
+  12          unsigned char *key_pressed, digits[4];
+  13          void main()
+  14          {
+  15   1        unsigned char i=4, *val;
+  16   1        while(1)
+  17   1        {
+  18   2          key_pressed=key_detect();
+  19   2          
+  20   2          while(i--)
+  21   2            digits[i]=key_pressed[0];   
+  22   2          
+  23   2          val=digits;
+  24   2          display(num_codes, val);
+  25   2        }
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    481    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     47      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

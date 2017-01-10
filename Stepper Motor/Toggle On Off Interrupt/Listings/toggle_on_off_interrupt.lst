@@ -1,0 +1,62 @@
+C51 COMPILER V9.54   TOGGLE_ON_OFF_INTERRUPT                                               11/05/2015 22:50:00 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TOGGLE_ON_OFF_INTERRUPT
+OBJECT MODULE PLACED IN .\Objects\toggle_on_off_interrupt.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE toggle_on_off_interrupt.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\toggle_on_off_interrupt.lst) TABS(2) OBJECT(.\Objects\toggle_on_off_interrupt.obj)
+
+line level    source
+
+   1          /**********************************************************************
+   2          * Objective: Toggle stepper motor on and off by external interrupt 0
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          ***********************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          bit ON=0, OFF=1;
+  13          
+  14          void main()
+  15          {
+  16   1        IE=0x81;
+  17   1        TCON=0x01;
+  18   1        
+  19   1        while(1)
+  20   1        {
+  21   2          coil1=ON; coil2=OFF; coil3=OFF; coil4=OFF;
+  22   2          delay(30000);
+  23   2          
+  24   2          coil1=OFF; coil2=ON; coil3=OFF; coil4=OFF;
+  25   2          delay(30000);
+  26   2          
+  27   2          coil1=OFF; coil2=OFF; coil3=ON; coil4=OFF;
+  28   2          delay(30000);
+  29   2          
+  30   2          coil1=OFF; coil2=OFF; coil3=OFF; coil4=ON;
+  31   2          delay(30000);
+  32   2        }
+  33   1      }
+  34          
+  35          void toggle() interrupt 0
+  36          {
+  37   1        ON=~ON;
+  38   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    106    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,158 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:14:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\fixed_display.obj TO .\Objects\fixed_display PRINT (.\Listings\fixed_display.m51) 
+>> RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\fixed_display.obj (FIXED_DISPLAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\fixed_display (FIXED_DISPLAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     002CH     UNIT         ?DT?FIXED_DISPLAY
+            DATA    0034H     000DH     UNIT         _DATA_GROUP_
+            IDATA   0041H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     009CH     UNIT         ?PR?_DISPLAY?FIXED_DISPLAY
+            CODE    089CH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0928H     0066H     UNIT         ?C?LIB_CODE
+            CODE    098EH     0035H     UNIT         ?C_INITSEG
+            CODE    09C3H     001EH     UNIT         ?PR?_DELAY?FIXED_DISPLAY
+            CODE    09E1H     001DH     UNIT         ?PR?MAIN?FIXED_DISPLAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\fixed_display (FIXED_DISPLAY)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?FIXED_DISPLAY
+  +--> ?C_INITSEG
+
+?PR?MAIN?FIXED_DISPLAY             0034H    0003H
+  +--> ?PR?_DISPLAY?FIXED_DISPLAY
+
+?PR?_DISPLAY?FIXED_DISPLAY         0037H    0006H
+  +--> ?PR?_DELAY?FIXED_DISPLAY
+
+?PR?_DELAY?FIXED_DISPLAY           003DH    0004H
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:14:43  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\fixed_display (FIXED_DISPLAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        FIXED_DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        char_codes
+  C:09CBH         PUBLIC        _delay
+  D:001CH         PUBLIC        values
+  B:00A0H.2       PUBLIC        hund_tr_ca
+  C:09E1H         PUBLIC        main
+  B:00A0H.1       PUBLIC        tens_tr_ca
+  B:00A0H.3       PUBLIC        thou_tr_ca
+  B:00A0H.0       PUBLIC        unit_tr_ca
+  D:0020H         PUBLIC        num_codes
+  C:0800H         PUBLIC        _display
+  D:002AH         PUBLIC        alpha_codes
+  C:09C3H         SYMBOL        L?0009
+  -------         PROC          L?0008
+  -------         ENDPROC       L?0008
+  C:09C3H         SYMBOL        L?0009
+  -------         PROC          _DELAY
+  D:003DH         SYMBOL        d
+  C:09CBH         LINE#         4
+  C:09D3H         LINE#         5
+  C:09D3H         LINE#         6
+  C:09E0H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAY
+  D:0037H         SYMBOL        codes
+  D:003AH         SYMBOL        datas
+  C:0800H         LINE#         12
+  C:0806H         LINE#         13
+  C:0806H         LINE#         14
+  C:0822H         LINE#         15
+  C:0824H         LINE#         16
+  C:0827H         LINE#         17
+  C:0829H         LINE#         19
+  C:0848H         LINE#         20
+  C:084AH         LINE#         21
+  C:084DH         LINE#         22
+  C:084FH         LINE#         24
+  C:086EH         LINE#         25
+  C:0870H         LINE#         26
+  C:0873H         LINE#         27
+  C:0875H         LINE#         29
+  C:0894H         LINE#         30
+  C:0896H         LINE#         31
+  C:0899H         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:14:43  PAGE 3
+
+
+  C:089BH         LINE#         33
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0034H         SYMBOL        val
+  -------         ENDDO         
+  C:09E1H         LINE#         13
+  C:09E1H         LINE#         14
+  C:09E1H         LINE#         15
+  C:09EAH         LINE#         17
+  C:09EAH         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        FIXED_DISPLAY
+
+  -------         MODULE        ?C?CLDPTR
+  C:0928H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0941H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0977H         PUBLIC        ?C?LLDIIDATA
+  C:096EH         PUBLIC        ?C?LLDIIDATA1
+  C:0970H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 010BH BYTE (13%) *
+******************************************************************************
+
+Program Size: data=66.0 xdata=0 code=513
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

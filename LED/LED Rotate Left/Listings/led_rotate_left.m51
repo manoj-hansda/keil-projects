@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:11:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\led_rotate_left.obj TO .\Objects\led_rotate_left PRINT (.\Listings\led_rotate_left
+>> .m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led_rotate_left.obj (LED_ROTATE_LEFT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\led_rotate_left (LED_ROTATE_LEFT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            DATA    000CH     0002H     UNIT         ?DT?LED_ROTATE_LEFT
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002AH     UNIT         ?PR?MAIN?LED_ROTATE_LEFT
+            CODE    082AH     0020H     UNIT         ?C?LIB_CODE
+            CODE    084AH     0016H     UNIT         ?PR?_DELAY?LED_ROTATE_LEFT
+            CODE    0860H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\led_rotate_left (LED_ROTATE_LEFT)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?LED_ROTATE_LEFT
+
+?PR?MAIN?LED_ROTATE_LEFT           -----    -----
+  +--> ?PR?_DELAY?LED_ROTATE_LEFT
+
+?PR?_DELAY?LED_ROTATE_LEFT         0008H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\led_rotate_left (LED_ROTATE_LEFT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_ROTATE_LEFT
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:11:41  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:084AH         PUBLIC        _delay
+  C:0800H         PUBLIC        main
+  D:000CH         PUBLIC        bits
+  B:0090H.4       PUBLIC        led_pwr_tr
+  D:000DH         PUBLIC        i
+  -------         PROC          _DELAY
+  D:0008H         SYMBOL        d
+  C:084AH         LINE#         4
+  C:0852H         LINE#         5
+  C:0852H         LINE#         6
+  C:085FH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         14
+  C:0800H         LINE#         15
+  C:0800H         LINE#         16
+  C:0802H         LINE#         18
+  C:0802H         LINE#         19
+  C:0802H         LINE#         20
+  C:0805H         LINE#         21
+  C:0808H         LINE#         22
+  C:0808H         LINE#         23
+  C:080EH         LINE#         24
+  C:0812H         LINE#         25
+  C:0814H         LINE#         26
+  C:081FH         LINE#         27
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_ROTATE_LEFT
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0833H         PUBLIC        ?C?LLDIIDATA
+  C:082AH         PUBLIC        ?C?LLDIIDATA1
+  C:082CH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0040H BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=111
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

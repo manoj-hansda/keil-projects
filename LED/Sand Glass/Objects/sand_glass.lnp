@@ -1,0 +1,3 @@
+".\Objects\sand_glass.obj" 
+TO ".\Objects\sand_glass" 
+PRINT(".\Listings\sand_glass.m51") RAMSIZE(256) 

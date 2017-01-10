@@ -1,0 +1,45 @@
+C51 COMPILER V9.54   SWAP_4_LED                                                            11/12/2015 21:13:12 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SWAP_4_LED
+OBJECT MODULE PLACED IN .\Objects\swap_4_led.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE swap_4_led.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\swap_4_led.lst) TABS(2) OBJECT(.\Objects\swap_4_led.obj)
+
+line level    source
+
+   1          /***************************
+   2          * Objective: Swap 4 LEDs
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *****************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          unsigned char bits=0x0F;
+  13          
+  14          void main()
+  15          {
+  16   1        while(1)
+  17   1        {
+  18   2          led_port=~bits;
+  19   2          delay(30000);
+  20   2        }
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     40    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

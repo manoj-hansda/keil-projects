@@ -1,0 +1,47 @@
+C51 COMPILER V9.54   LED_BLINK                                                             11/12/2015 21:07:39 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LED_BLINK
+OBJECT MODULE PLACED IN .\Objects\led_blink.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE led_blink.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\led_blink.lst) TABS(2) OBJECT(.\Objects\led_blink.obj)
+
+line level    source
+
+   1          /*********************************
+   2          * Objective: Blink 8 LED panel
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          ***********************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          unsigned char bits=0;
+  13          
+  14          void main()
+  15          { 
+  16   1        led_pwr_tr=0;
+  17   1        
+  18   1        while(1)
+  19   1        {
+  20   2          led_port=~bits;
+  21   2          delay(30000);
+  22   2        }
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     42    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

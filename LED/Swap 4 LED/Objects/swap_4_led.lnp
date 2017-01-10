@@ -1,0 +1,3 @@
+".\Objects\swap_4_led.obj" 
+TO ".\Objects\swap_4_led" 
+PRINT(".\Listings\swap_4_led.m51") RAMSIZE(256) 

@@ -1,0 +1,118 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:12:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\sand_glass.obj TO .\Objects\sand_glass PRINT (.\Listings\sand_glass.m51) RAMSIZE (
+>> 256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\sand_glass.obj (SAND_GLASS)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\sand_glass (SAND_GLASS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?SAND_GLASS
+            DATA    000DH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0011H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     003CH     UNIT         ?PR?MAIN?SAND_GLASS
+            CODE    08C8H     0020H     UNIT         ?C?LIB_CODE
+            CODE    08E8H     0016H     UNIT         ?PR?_DELAY?SAND_GLASS
+            CODE    08FEH     000AH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\sand_glass (SAND_GLASS)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SAND_GLASS
+  +--> ?C_INITSEG
+
+?PR?MAIN?SAND_GLASS            -----    -----
+  +--> ?PR?_DELAY?SAND_GLASS
+
+?PR?_DELAY?SAND_GLASS          000DH    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\sand_glass (SAND_GLASS)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:12:59  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        SAND_GLASS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:0008H         PUBLIC        length
+  C:08E8H         PUBLIC        _delay
+  D:0009H         PUBLIC        value
+  C:088CH         PUBLIC        main
+  D:000AH         PUBLIC        hold
+  D:000BH         PUBLIC        bits
+  D:000CH         PUBLIC        i
+  -------         PROC          _DELAY
+  D:000DH         SYMBOL        d
+  C:08E8H         LINE#         4
+  C:08F0H         LINE#         5
+  C:08F0H         LINE#         6
+  C:08FDH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:088CH         LINE#         14
+  C:088CH         LINE#         15
+  C:088CH         LINE#         16
+  C:088CH         LINE#         17
+  C:088CH         LINE#         18
+  C:088FH         LINE#         19
+  C:0899H         LINE#         20
+  C:0899H         LINE#         21
+  C:089EH         LINE#         22
+  C:08A9H         LINE#         23
+  C:08AFH         LINE#         24
+  C:08B3H         LINE#         25
+  C:08B5H         LINE#         26
+  C:08BBH         LINE#         27
+  C:08C1H         LINE#         28
+  C:08C6H         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        SAND_GLASS
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08D1H         PUBLIC        ?C?LLDIIDATA
+  C:08C8H         PUBLIC        ?C?LLDIIDATA1
+  C:08CAH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 005BH BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=18.0 xdata=0 code=267
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

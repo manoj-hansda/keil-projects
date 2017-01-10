@@ -1,0 +1,3 @@
+".\Objects\led_rotate_left.obj" 
+TO ".\Objects\led_rotate_left" 
+PRINT(".\Listings\led_rotate_left.m51") RAMSIZE(256) 

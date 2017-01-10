@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:12:01  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\led_rotate_right.obj TO .\Objects\led_rotate_right PRINT (.\Listings\led_rotate_ri
+>> ght.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led_rotate_right.obj (LED_ROTATE_RIGHT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+
+
+LINK MAP OF MODULE:  .\Objects\led_rotate_right (LED_ROTATE_RIGHT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            DATA    000CH     0002H     UNIT         ?DT?LED_ROTATE_RIGHT
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0029H     UNIT         ?PR?MAIN?LED_ROTATE_RIGHT
+            CODE    0829H     0020H     UNIT         ?C?LIB_CODE
+            CODE    0849H     0016H     UNIT         ?PR?_DELAY?LED_ROTATE_RIGHT
+            CODE    085FH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\led_rotate_right (LED_ROTATE_RIGHT)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?LED_ROTATE_RIGHT
+
+?PR?MAIN?LED_ROTATE_RIGHT           -----    -----
+  +--> ?PR?_DELAY?LED_ROTATE_RIGHT
+
+?PR?_DELAY?LED_ROTATE_RIGHT         0008H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\led_rotate_right (LED_ROTATE_RIGHT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED_ROTATE_RIGHT
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:12:01  PAGE 2
+
+
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0849H         PUBLIC        _delay
+  C:0800H         PUBLIC        main
+  D:000CH         PUBLIC        bits
+  B:0090H.4       PUBLIC        led_pwr_tr
+  D:000DH         PUBLIC        i
+  -------         PROC          _DELAY
+  D:0008H         SYMBOL        d
+  C:0849H         LINE#         4
+  C:0851H         LINE#         5
+  C:0851H         LINE#         6
+  C:085EH         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0800H         LINE#         14
+  C:0800H         LINE#         15
+  C:0800H         LINE#         16
+  C:0802H         LINE#         18
+  C:0802H         LINE#         19
+  C:0802H         LINE#         20
+  C:0805H         LINE#         21
+  C:0808H         LINE#         22
+  C:0808H         LINE#         23
+  C:080EH         LINE#         24
+  C:0810H         LINE#         25
+  C:0813H         LINE#         26
+  C:081EH         LINE#         27
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_ROTATE_RIGHT
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0832H         PUBLIC        ?C?LLDIIDATA
+  C:0829H         PUBLIC        ?C?LLDIIDATA1
+  C:082BH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003FH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=110
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,86 @@
+C51 COMPILER V9.54   MULTI_LED_ROTATE                                                      11/12/2015 21:12:39 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MULTI_LED_ROTATE
+OBJECT MODULE PLACED IN .\Objects\multi_led_rotate.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE multi_led_rotate.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\multi_led_rotate.lst) TABS(2) OBJECT(.\Objects\multi_led_rotate.obj)
+
+line level    source
+
+   1          /***********************************************************************
+   2          * Objective: Rotate multi LEDs left or right
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *************************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          void left(void);
+  13          void right(void);           
+  14          
+  15          unsigned char i, bits, led=4;                 //number of LEDs
+  16          
+  17          void main()
+  18          {
+  19   1        led_pwr_tr=0; 
+  20   1           
+  21   1        while(1)
+  22   1        {   
+  23   2          left();           //toggle left or right by
+  24   2          //right();        //un-commenting one of both
+  25   2        }
+  26   1      }
+  27          
+  28          void left(void)
+  29          { 
+  30   1        for(i=0; i<led; i++)
+  31   1        {
+  32   2          bits=bits>>1;
+  33   2          led_port=bits;
+  34   2          delay(15000);     
+  35   2        }
+  36   1        for(i=0; i<8; i++)
+  37   1        {
+  38   2          bits=bits>>1;
+  39   2          bits=bits+0x80;
+  40   2          led_port=bits;
+  41   2          delay(15000); 
+  42   2        } 
+  43   1      }
+  44          
+  45          void right(void)
+  46          {
+  47   1        for(i=0; i<led; i++)
+  48   1        {
+  49   2          bits=bits<<1;
+  50   2          led_port=bits;
+  51   2          delay(15000);     
+  52   2        }
+  53   1        for(i=0; i<8; i++)
+  54   1        {
+C51 COMPILER V9.54   MULTI_LED_ROTATE                                                      11/12/2015 21:12:39 PAGE 2   
+
+  55   2          bits=bits<<1;
+  56   2          bits=bits+0x01;
+  57   2          led_port=bits;
+  58   2          delay(15000); 
+  59   2        } 
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    134    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

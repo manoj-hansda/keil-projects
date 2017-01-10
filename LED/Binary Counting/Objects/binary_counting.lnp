@@ -1,0 +1,3 @@
+".\Objects\binary_counting.obj" 
+TO ".\Objects\binary_counting" 
+PRINT(".\Listings\binary_counting.m51") RAMSIZE(256) 

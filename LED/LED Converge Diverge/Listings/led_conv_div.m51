@@ -1,0 +1,128 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:11:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\led_conv_div.obj TO .\Objects\led_conv_div PRINT (.\Listings\led_conv_div.m51) RAM
+>> SIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led_conv_div.obj (LED_CONV_DIV)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\led_conv_div (LED_CONV_DIV)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?LED_CONV_DIV
+            DATA    000CH     0004H     UNIT         _DATA_GROUP_
+            IDATA   0010H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0040H     UNIT         ?PR?MAIN?LED_CONV_DIV
+            CODE    08CCH     0020H     UNIT         ?C?LIB_CODE
+            CODE    08ECH     001EH     UNIT         ?PR?_DELAY?LED_CONV_DIV
+            CODE    090AH     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\led_conv_div (LED_CONV_DIV)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?LED_CONV_DIV
+  +--> ?C_INITSEG
+
+?PR?MAIN?LED_CONV_DIV           -----    -----
+  +--> ?PR?_DELAY?LED_CONV_DIV
+
+?PR?_DELAY?LED_CONV_DIV         000CH    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\led_conv_div (LED_CONV_DIV)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:11:08  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        LED_CONV_DIV
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:08F4H         PUBLIC        _delay
+  C:088CH         PUBLIC        main
+  B:0090H.4       PUBLIC        led_pwr_tr
+  D:0008H         PUBLIC        d
+  D:0009H         PUBLIC        bits1
+  D:000AH         PUBLIC        bits2
+  D:000BH         PUBLIC        i
+  -------         PROC          L?0012
+  -------         ENDPROC       L?0012
+  -------         PROC          _DELAY
+  D:000CH         SYMBOL        d
+  C:08F4H         LINE#         4
+  C:08FCH         LINE#         5
+  C:08FCH         LINE#         6
+  C:0909H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:088CH         LINE#         14
+  C:088CH         LINE#         15
+  C:088CH         LINE#         16
+  C:088EH         LINE#         18
+  C:088EH         LINE#         19
+  C:088EH         LINE#         20
+  C:0894H         LINE#         22
+  C:0897H         LINE#         23
+  C:0897H         LINE#         24
+  C:089EH         LINE#         25
+  C:089EH         LINE#         26
+  C:08A1H         LINE#         27
+  C:08A4H         LINE#         28
+  C:08A7H         LINE#         29
+  C:08AAH         LINE#         30
+  C:08ACH         LINE#         31
+  C:08B2H         LINE#         32
+  C:08B6H         LINE#         33
+  C:08BCH         LINE#         34
+  C:08BEH         LINE#         35
+  C:08C1H         LINE#         36
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED_CONV_DIV
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08D5H         PUBLIC        ?C?LLDIIDATA
+  C:08CCH         PUBLIC        ?C?LLDIIDATA1
+  C:08CEH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0061H BYTE ( 4%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:11:08  PAGE 3
+
+
+******************************************************************************
+
+Program Size: data=17.0 xdata=0 code=273
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

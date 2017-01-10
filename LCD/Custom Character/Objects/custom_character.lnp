@@ -1,0 +1,3 @@
+".\Objects\custom_character.obj" 
+TO ".\Objects\custom_character" 
+PRINT(".\Listings\custom_character.m51") RAMSIZE(256) 

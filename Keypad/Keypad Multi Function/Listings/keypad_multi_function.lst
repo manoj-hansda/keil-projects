@@ -1,0 +1,93 @@
+C51 COMPILER V9.54   KEYPAD_MULTI_FUNCTION                                                 11/12/2015 21:13:51 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE KEYPAD_MULTI_FUNCTION
+OBJECT MODULE PLACED IN .\Objects\keypad_multi_function.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE keypad_multi_function.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRIN
+                    -T(.\Listings\keypad_multi_function.lst) TABS(2) OBJECT(.\Objects\keypad_multi_function.obj)
+
+line level    source
+
+   1          /**************************************************************************************************
+   2          * Objective: Pressing differnet keys from 4x3 keypad triggers different functions on 8 LED panel
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          ***************************************************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          #include "led_functions.c"                   // contains led functions
+  12          
+  13          void key_action(unsigned char);
+  14          
+  15          bit flag=0;
+  16          unsigned char *key_pressed;
+  17          
+  18          void main()
+  19          {
+  20   1        led_pwr_tr=0;
+  21   1        
+  22   1        while(1)
+  23   1        {
+  24   2          key_pressed=key_detect();
+  25   2          if(key_pressed[0]!='\0')
+  26   2            if(flag==0)
+  27   2              key_action(key_pressed[0]);
+  28   2        }
+  29   1      }
+  30          
+  31          void key_action(unsigned char key)
+  32          {
+  33   1        switch(key)
+  34   1        {
+  35   2          case 1:
+  36   2            binary_counting();
+  37   2            break;
+  38   2          
+  39   2          case 2:
+  40   2            led_blink();
+  41   2            break;
+  42   2          
+  43   2          case 3:
+  44   2            swap_4_led();
+  45   2            break;
+  46   2          
+  47   2          case 4:
+  48   2            rotate_led_left();
+  49   2            break;
+  50   2          
+  51   2          case 5:
+  52   2            rotate_led_right();
+  53   2            break;
+  54   2          
+C51 COMPILER V9.54   KEYPAD_MULTI_FUNCTION                                                 11/12/2015 21:13:51 PAGE 2   
+
+  55   2          case 6:
+  56   2            conv_and_div();
+  57   2            break;
+  58   2          
+  59   2          case 7:
+  60   2            multi_led_rotate();
+  61   2            break;
+  62   2          
+  63   2          case 8:
+  64   2            sand_glass();
+  65   2            break;
+  66   2        }
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    540    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

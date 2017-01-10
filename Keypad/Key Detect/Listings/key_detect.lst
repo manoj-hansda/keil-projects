@@ -1,0 +1,46 @@
+C51 COMPILER V9.54   KEY_DETECT                                                            11/12/2015 21:13:42 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE KEY_DETECT
+OBJECT MODULE PLACED IN .\Objects\key_detect.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE key_detect.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\key_detect.lst) TABS(2) OBJECT(.\Objects\key_detect.obj)
+
+line level    source
+
+   1          /******************************************************************************************
+   2          * Objective: Detect key from 4x3 keypad and blink their binary equivalent on 8 LED panel
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *******************************************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          
+  11          unsigned char  *key_pressed;
+  12          
+  13          void main()
+  14          {
+  15   1        led_pwr_tr=0;
+  16   1        
+  17   1        while(1)
+  18   1        {
+  19   2          key_pressed=key_detect();
+  20   2          led_port=~key_pressed[0];
+  21   2        }
+  22   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    247    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

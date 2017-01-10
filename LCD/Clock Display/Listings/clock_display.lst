@@ -1,0 +1,93 @@
+C51 COMPILER V9.54   CLOCK_DISPLAY                                                         11/12/2015 21:15:26 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE CLOCK_DISPLAY
+OBJECT MODULE PLACED IN .\Objects\clock_display.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE clock_display.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\clock_display.lst) TABS(2) OBJECT(.\Objects\clock_display.obj)
+
+line level    source
+
+   1          /******************************************************************
+   2          * Objective: External interrupt triggered stopwatch on 16x2 LCD
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *******************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/lcd.h"             // contains lcd_init(), send_cmd(), send_data(), send_msg()
+  10          
+  11          unsigned char i=48,j=48,k=48,l=48,m=48,count=0;
+  12          
+  13          void main()
+  14          {
+  15   1        delay(1275);
+  16   1        lcd_init();
+  17   1      
+  18   1        send_msg("STOPWATCH:");
+  19   1      
+  20   1        send_cmd(0xC0);
+  21   1      
+  22   1        send_data(l);
+  23   1        send_data(k);
+  24   1        send_data(':');
+  25   1        send_data(j);
+  26   1        send_data(i);
+  27   1        send_data(':');
+  28   1        send_data(m);
+  29   1      
+  30   1        IE=0x83;
+  31   1        TMOD=0x01;
+  32   1        TH0=0x3C;
+  33   1        TL0=0xB0;
+  34   1        TR0=1;
+  35   1      
+  36   1        while(1);
+  37   1      }
+  38          
+  39          void timer0() interrupt 1
+  40          {
+  41   1        TH0=0x3C;
+  42   1        TL0=0xB0;
+  43   1      
+  44   1        if(count++==1)
+  45   1        {
+  46   2          count=0;
+  47   2          m++;
+  48   2          if(m>57)  { m=48; i++;  }
+  49   2          if(i>57)  { i=48; j++;  }
+  50   2          if(j>53)  { j=48; k++;  }
+  51   2          if(k>57)  { k=48; l++;  }
+  52   2          if(l>53)  { l=48; }
+  53   2          send_cmd(0xC0);
+  54   2          send_data(l);
+C51 COMPILER V9.54   CLOCK_DISPLAY                                                         11/12/2015 21:15:26 PAGE 2   
+
+  55   2          send_data(k);
+  56   2          send_data(':');
+  57   2          send_data(j);
+  58   2          send_data(i);
+  59   2          send_data(':');
+  60   2          send_data(m);
+  61   2        }
+  62   1      }
+  63          
+  64          void stop() interrupt 0
+  65          {
+  66   1          TR0=0;
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    404    ----
+   CONSTANT SIZE    =     11    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

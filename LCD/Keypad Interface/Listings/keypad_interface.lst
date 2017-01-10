@@ -1,0 +1,56 @@
+C51 COMPILER V9.54   KEYPAD_INTERFACE                                                      11/12/2015 21:16:21 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE KEYPAD_INTERFACE
+OBJECT MODULE PLACED IN .\Objects\keypad_interface.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE keypad_interface.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\keypad_interface.lst) TABS(2) OBJECT(.\Objects\keypad_interface.obj)
+
+line level    source
+
+   1          /********************************************
+   2          * Objective: Keypad interface of 16x2 LCD
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *********************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          #include "../../functions/lcd.h"             // contains send_cmd(), send_data(), send_msg()
+  11          
+  12          unsigned char *key_pressed, flag=0;
+  13          
+  14          void main()
+  15          {
+  16   1        delay(1275);
+  17   1        lcd_init();
+  18   1        
+  19   1        while(1)
+  20   1        {
+  21   2          key_pressed=key_detect();
+  22   2          if(key_pressed[0]!='\0')
+  23   2            if(flag==0)
+  24   2            {
+  25   3              send_data(key_pressed[0]);
+  26   3              flag=1; 
+  27   3            }
+  28   2            
+  29   2          else
+  30   2            flag=0;
+  31   2        }
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    443    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

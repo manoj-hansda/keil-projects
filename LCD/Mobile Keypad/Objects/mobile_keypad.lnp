@@ -1,0 +1,3 @@
+".\Objects\mobile_keypad.obj" 
+TO ".\Objects\mobile_keypad" 
+PRINT(".\Listings\mobile_keypad.m51") RAMSIZE(256) 

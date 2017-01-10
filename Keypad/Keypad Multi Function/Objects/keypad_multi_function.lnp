@@ -1,0 +1,3 @@
+".\Objects\keypad_multi_function.obj" 
+TO ".\Objects\keypad_multi_function" 
+PRINT(".\Listings\keypad_multi_function.m51") RAMSIZE(256) 

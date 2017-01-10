@@ -1,0 +1,215 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:15:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\custom_character.obj TO .\Objects\custom_character PRINT (.\Listings\custom_charac
+>> ter.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\custom_character.obj (CUSTOM_CHARACTER)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\custom_character (CUSTOM_CHARACTER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0048H     UNIT         ?DT?CUSTOM_CHARACTER
+            DATA    0050H     0004H     UNIT         ?DT?_SEND_MSG?CUSTOM_CHARACTER
+            DATA    0054H     0004H     UNIT         _DATA_GROUP_
+            IDATA   0058H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0066H     UNIT         ?C?LIB_CODE
+            CODE    08F2H     004EH     UNIT         ?C_INITSEG
+            CODE    0940H     003FH     UNIT         ?PR?MAIN?CUSTOM_CHARACTER
+            CODE    097FH     0032H     UNIT         ?PR?_SEND_MSG?CUSTOM_CHARACTER
+            CODE    09B1H     0023H     UNIT         ?PR?LCD_INIT?CUSTOM_CHARACTER
+            CODE    09D4H     0020H     UNIT         ?PR?_DELAY?CUSTOM_CHARACTER
+            CODE    09F4H     0020H     UNIT         ?PR?_SEND_DATA?CUSTOM_CHARACTER
+            CODE    0A14H     0018H     UNIT         ?PR?_SEND_CMD?CUSTOM_CHARACTER
+            CODE    0A2CH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\custom_character (CUSTOM_CHARACTER)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?CUSTOM_CHARACTER
+  +--> ?C_INITSEG
+
+?PR?MAIN?CUSTOM_CHARACTER               -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:15:57  PAGE 2
+
+
+  +--> ?PR?_DELAY?CUSTOM_CHARACTER
+  +--> ?PR?LCD_INIT?CUSTOM_CHARACTER
+  +--> ?PR?_SEND_CMD?CUSTOM_CHARACTER
+  +--> ?PR?_SEND_DATA?CUSTOM_CHARACTER
+
+?PR?_DELAY?CUSTOM_CHARACTER             0054H    0004H
+
+?PR?LCD_INIT?CUSTOM_CHARACTER           -----    -----
+  +--> ?PR?_SEND_CMD?CUSTOM_CHARACTER
+
+?PR?_SEND_CMD?CUSTOM_CHARACTER          -----    -----
+  +--> ?PR?_DELAY?CUSTOM_CHARACTER
+
+?PR?_SEND_DATA?CUSTOM_CHARACTER         -----    -----
+  +--> ?PR?_DELAY?CUSTOM_CHARACTER
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\custom_character (CUSTOM_CHARACTER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CUSTOM_CHARACTER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:09DEH         PUBLIC        _delay
+  C:0940H         PUBLIC        main
+  C:09F4H         PUBLIC        _send_data
+  D:0008H         PUBLIC        SYMBOLS
+  C:0A14H         PUBLIC        _send_cmd
+  D:0048H         PUBLIC        CG_RAM
+  C:09B1H         PUBLIC        lcd_init
+  B:00A0H.5       PUBLIC        en
+  C:097FH         PUBLIC        _send_msg
+  B:00A0H.4       PUBLIC        rs
+  C:09D8H         SYMBOL        L?0024
+  C:09DAH         SYMBOL        L?0025
+  -------         PROC          L?0023
+  -------         ENDPROC       L?0023
+  C:09D8H         SYMBOL        L?0024
+  C:09DAH         SYMBOL        L?0025
+  -------         PROC          _DELAY
+  D:0054H         SYMBOL        d
+  C:09DEH         LINE#         4
+  C:09E6H         LINE#         5
+  C:09E6H         LINE#         6
+  C:09F3H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          LCD_INIT
+  C:09B1H         LINE#         14
+  C:09B1H         LINE#         15
+  C:09B1H         LINE#         16
+  C:09C0H         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:15:57  PAGE 3
+
+
+  C:09C5H         LINE#         18
+  C:09CAH         LINE#         19
+  C:09CFH         LINE#         20
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _SEND_CMD
+  D:0003H         SYMBOL        value
+  C:0A14H         LINE#         23
+  C:0A16H         LINE#         24
+  C:0A16H         LINE#         25
+  C:0A18H         LINE#         26
+  C:0A1AH         LINE#         27
+  C:0A1FH         LINE#         28
+  C:0A24H         LINE#         29
+  C:0A26H         LINE#         30
+  C:0A2BH         LINE#         31
+  -------         ENDPROC       _SEND_CMD
+  -------         PROC          _SEND_DATA
+  D:0003H         SYMBOL        value
+  C:09F4H         LINE#         33
+  C:09F6H         LINE#         34
+  C:09F6H         LINE#         35
+  C:09F8H         LINE#         36
+  C:09FAH         LINE#         37
+  C:0A03H         LINE#         38
+  C:0A08H         LINE#         39
+  C:0A0AH         LINE#         40
+  C:0A13H         LINE#         41
+  -------         ENDPROC       _SEND_DATA
+  -------         PROC          _SEND_MSG
+  D:0050H         SYMBOL        msg
+  -------         DO            
+  D:0053H         SYMBOL        i
+  -------         ENDDO         
+  C:097FH         LINE#         43
+  C:0985H         LINE#         44
+  C:0985H         LINE#         46
+  C:0999H         LINE#         47
+  C:09B0H         LINE#         48
+  -------         ENDPROC       _SEND_MSG
+  -------         PROC          MAIN
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0001H         SYMBOL        j
+  -------         ENDDO         
+  C:0940H         LINE#         15
+  C:0940H         LINE#         16
+  C:0940H         LINE#         19
+  C:0947H         LINE#         20
+  C:094AH         LINE#         22
+  C:094CH         LINE#         23
+  C:094CH         LINE#         24
+  C:0955H         LINE#         25
+  C:0957H         LINE#         26
+  C:0969H         LINE#         27
+  C:096DH         LINE#         29
+  C:0972H         LINE#         31
+  C:0974H         LINE#         32
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:15:57  PAGE 4
+
+
+  C:097DH         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CUSTOM_CHARACTER
+
+  -------         MODULE        ?C?CLDOPTR
+  C:088CH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08C2H         PUBLIC        ?C?LLDIIDATA
+  C:08B9H         PUBLIC        ?C?LLDIIDATA1
+  C:08BBH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        STRLEN
+  C:0A2CH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:08D9H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_MSG?CUSTOM_CHARACTER
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0139H BYTE (15%) *
+******************************************************************************
+
+Program Size: data=89.0 xdata=0 code=580
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

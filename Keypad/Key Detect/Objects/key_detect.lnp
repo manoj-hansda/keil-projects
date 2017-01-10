@@ -1,0 +1,3 @@
+".\Objects\key_detect.obj" 
+TO ".\Objects\key_detect" 
+PRINT(".\Listings\key_detect.m51") RAMSIZE(256) 

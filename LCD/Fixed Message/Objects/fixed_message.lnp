@@ -1,0 +1,3 @@
+".\Objects\fixed_message.obj" 
+TO ".\Objects\fixed_message" 
+PRINT(".\Listings\fixed_message.m51") RAMSIZE(256) 

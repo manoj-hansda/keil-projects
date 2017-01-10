@@ -1,0 +1,49 @@
+C51 COMPILER V9.54   TOGGLE_LED                                                            11/12/2015 21:58:17 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TOGGLE_LED
+OBJECT MODULE PLACED IN .\Objects\toggle_led.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE toggle_led.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listing
+                    -s\toggle_led.lst) TABS(2) OBJECT(.\Objects\toggle_led.obj)
+
+line level    source
+
+   1          /*****************************************************************
+   2          * Objective: Toggle 8 LED panel on off by external interrupt 0
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *******************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10                      
+  11          void main()
+  12          {
+  13   1        led_pwr_tr=0;
+  14   1        led_port=0x00;
+  15   1        
+  16   1        IE=0x81;
+  17   1        TCON=0x01;
+  18   1      
+  19   1        while(1);
+  20   1      }
+  21          
+  22          void toggle() interrupt 0
+  23          {
+  24   1        led_port=~led_port;
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     17    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

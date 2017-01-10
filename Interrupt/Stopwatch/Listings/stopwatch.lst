@@ -1,0 +1,78 @@
+C51 COMPILER V9.54   STOPWATCH                                                             11/12/2015 21:55:44 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE STOPWATCH
+OBJECT MODULE PLACED IN .\Objects\stopwatch.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE stopwatch.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\stopwatch.lst) TABS(2) OBJECT(.\Objects\stopwatch.obj)
+
+line level    source
+
+   1          /********************************************************************************
+   2          * Objective: External interrupt controlled stopwatch on seven segment display
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *********************************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/seven_segment.h"   // contains display()
+  10          
+  11          unsigned char i=0, j=0, k=0, l=0, dot=0xFF, time[4];
+  12          unsigned int count=0;
+  13                      
+  14          void main()
+  15          { 
+  16   1        IE=0x82;
+  17   1        TMOD=0x01;
+  18   1        TH0=0x3C;
+  19   1        TL0=0xB0;
+  20   1        TR0=1;
+  21   1        
+  22   1        time[0]=time[1]=time[2]=time[3]=0;
+  23   1        
+  24   1        while(1)
+  25   1          display(num_codes, time);
+  26   1      }
+  27          
+  28          void timer0() interrupt 1
+  29          {
+  30   1        TH0=0x3C;
+  31   1        TL0=0xB0;
+  32   1        
+  33   1        if(count++==20)
+  34   1        {
+  35   2          count=0;
+  36   2          i++;
+  37   2          if(i>9) { i=0;  j++;  }     
+  38   2          if(j>5) { j=0;  k++;  }   
+  39   2          if(k>9) { k=0;  l++;  } 
+  40   2          if(l>5) { l=0;  }
+  41   2          time[0]=i;  time[1]=j;  time[2]=k;  time[3]=l;
+  42   2          dot=0x7F;
+  43   2        }
+  44   1        
+  45   1        if(count==10)
+  46   1          dot=0xFF;
+  47   1      }
+  48          
+  49          void stop() interrupt 0
+  50          {
+  51   1          TR0=0;
+  52   1      }
+
+
+C51 COMPILER V9.54   STOPWATCH                                                             11/12/2015 21:55:44 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    348    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     51      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

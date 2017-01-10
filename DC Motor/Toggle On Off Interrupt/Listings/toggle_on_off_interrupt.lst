@@ -1,0 +1,50 @@
+C51 COMPILER V9.54   TOGGLE_ON_OFF_INTERRUPT                                               11/05/2015 22:14:46 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TOGGLE_ON_OFF_INTERRUPT
+OBJECT MODULE PLACED IN .\Objects\toggle_on_off_interrupt.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE toggle_on_off_interrupt.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PR
+                    -INT(.\Listings\toggle_on_off_interrupt.lst) TABS(2) OBJECT(.\Objects\toggle_on_off_interrupt.obj)
+
+line level    source
+
+   1          /*****************************************
+   2          * Objective: Simple DC motor on and off
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *******************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+  10          #include "../../functions/delay.h"           // contains delay()
+  11          
+  12          bit state=0;
+  13          
+  14          void main()
+  15          {
+  16   1        IE=0x81;
+  17   1        TCON=0x01;
+  18   1        
+  19   1        while(1);
+  20   1      }
+  21          
+  22          void toggle() interrupt 0
+  23          {
+  24   1        DC_motor=~state;
+  25   1        delay(500000);
+  26   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     98    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

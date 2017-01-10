@@ -1,0 +1,3 @@
+".\Objects\interrupt_count.obj" 
+TO ".\Objects\interrupt_count" 
+PRINT(".\Listings\interrupt_count.m51") RAMSIZE(256) 

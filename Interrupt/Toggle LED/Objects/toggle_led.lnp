@@ -1,0 +1,3 @@
+".\Objects\toggle_led.obj" 
+TO ".\Objects\toggle_led" 
+PRINT(".\Listings\toggle_led.m51") RAMSIZE(256) 

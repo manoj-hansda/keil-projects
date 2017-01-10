@@ -1,0 +1,106 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/05/2015  22:27:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\simple_on_off.obj TO .\Objects\simple_on_off PRINT (.\Listings\simple_on_off.m51) 
+>> RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\simple_on_off.obj (SIMPLE_ON_OFF)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_IBP)
+
+
+LINK MAP OF MODULE:  .\Objects\simple_on_off (SIMPLE_ON_OFF)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?C?LIB_DATA
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002CH     UNIT         ?C?LIB_CODE
+            CODE    082CH     001EH     UNIT         ?PR?_?DELAY?SIMPLE_ON_OFF
+            CODE    084AH     001AH     UNIT         ?PR?MAIN?SIMPLE_ON_OFF
+            CODE    0864H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\simple_on_off (SIMPLE_ON_OFF)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?SIMPLE_ON_OFF
+
+?PR?MAIN?SIMPLE_ON_OFF
+  +--> ?PR?_?DELAY?SIMPLE_ON_OFF
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\simple_on_off (SIMPLE_ON_OFF)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SIMPLE_ON_OFF
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/05/2015  22:27:08  PAGE 2
+
+
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:082CH         PUBLIC        _?delay
+  B:00B0H.4       PUBLIC        DC_motor
+  C:084AH         PUBLIC        main
+  -------         PROC          _?DELAY
+  i:0000H         SYMBOL        d
+  C:082CH         LINE#         4
+  C:0836H         LINE#         6
+  C:0843H         LINE#         7
+  -------         ENDPROC       _?DELAY
+  -------         PROC          MAIN
+  C:084AH         LINE#         15
+  C:084AH         LINE#         16
+  C:084AH         LINE#         17
+  C:084CH         LINE#         18
+  C:0857H         LINE#         19
+  C:0859H         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        SIMPLE_ON_OFF
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0809H         PUBLIC        ?C?LLDIIDATA
+  C:0800H         PUBLIC        ?C?LLDIIDATA1
+  C:0802H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        ?C?LSTIDATA
+  C:0820H         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C_IBP
+  D:0008H         PUBLIC        ?C_IBP
+  -------         ENDMOD        ?C_IBP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0038H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=115
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

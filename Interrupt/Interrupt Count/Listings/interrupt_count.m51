@@ -1,0 +1,175 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  21:49:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\interrupt_count.obj TO .\Objects\interrupt_count PRINT (.\Listings\interrupt_count
+>> .m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\interrupt_count.obj (INTERRUPT_COUNT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\interrupt_count (INTERRUPT_COUNT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0030H     UNIT         ?DT?INTERRUPT_COUNT
+            DATA    0038H     000AH     UNIT         _DATA_GROUP_
+            IDATA   0042H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     009CH     UNIT         ?PR?_DISPLAY?INTERRUPT_COUNT
+            CODE    089CH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0928H     0066H     UNIT         ?C?LIB_CODE
+            CODE    098EH     0045H     UNIT         ?PR?TOGGLE?INTERRUPT_COUNT
+            CODE    09D3H     0041H     UNIT         ?C_INITSEG
+            CODE    0A14H     001EH     UNIT         ?PR?_DELAY?INTERRUPT_COUNT
+            CODE    0A32H     001AH     UNIT         ?PR?MAIN?INTERRUPT_COUNT
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\interrupt_count (INTERRUPT_COUNT)
+
+
+SEGMENT                                DATA_GROUP 
+  +--> CALLED SEGMENT                START    LENGTH
+----------------------------------------------------
+?C_C51STARTUP                        -----    -----
+  +--> ?PR?MAIN?INTERRUPT_COUNT
+  +--> ?C_INITSEG
+
+?PR?MAIN?INTERRUPT_COUNT             -----    -----
+  +--> ?PR?_DISPLAY?INTERRUPT_COUNT
+
+?PR?_DISPLAY?INTERRUPT_COUNT         0038H    0006H
+  +--> ?PR?_DELAY?INTERRUPT_COUNT
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:49:30  PAGE 2
+
+
+
+?PR?_DELAY?INTERRUPT_COUNT           003EH    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\interrupt_count (INTERRUPT_COUNT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        INTERRUPT_COUNT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:098EH         PUBLIC        toggle
+  D:00A8H         PUBLIC        IE
+  D:0008H         PUBLIC        char_codes
+  C:0A1CH         PUBLIC        _delay
+  B:00A0H.2       PUBLIC        hund_tr_ca
+  C:0A32H         PUBLIC        main
+  B:00A0H.1       PUBLIC        tens_tr_ca
+  D:001CH         PUBLIC        count
+  B:00A0H.3       PUBLIC        thou_tr_ca
+  B:00A0H.0       PUBLIC        unit_tr_ca
+  D:0088H         PUBLIC        TCON
+  D:0020H         PUBLIC        num_codes
+  D:002AH         PUBLIC        i
+  D:002BH         PUBLIC        j
+  D:002CH         PUBLIC        k
+  D:002DH         PUBLIC        l
+  C:0800H         PUBLIC        _display
+  D:002EH         PUBLIC        alpha_codes
+  C:0A14H         SYMBOL        L?0014
+  -------         PROC          L?0013
+  -------         ENDPROC       L?0013
+  C:0A14H         SYMBOL        L?0014
+  -------         PROC          _DELAY
+  D:003EH         SYMBOL        d
+  C:0A1CH         LINE#         4
+  C:0A24H         LINE#         5
+  C:0A24H         LINE#         6
+  C:0A31H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAY
+  D:0038H         SYMBOL        codes
+  D:003BH         SYMBOL        datas
+  C:0800H         LINE#         12
+  C:0806H         LINE#         13
+  C:0806H         LINE#         14
+  C:0822H         LINE#         15
+  C:0824H         LINE#         16
+  C:0827H         LINE#         17
+  C:0829H         LINE#         19
+  C:0848H         LINE#         20
+  C:084AH         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  21:49:30  PAGE 3
+
+
+  C:084DH         LINE#         22
+  C:084FH         LINE#         24
+  C:086EH         LINE#         25
+  C:0870H         LINE#         26
+  C:0873H         LINE#         27
+  C:0875H         LINE#         29
+  C:0894H         LINE#         30
+  C:0896H         LINE#         31
+  C:0899H         LINE#         32
+  C:089BH         LINE#         33
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  C:0A32H         LINE#         14
+  C:0A32H         LINE#         15
+  C:0A32H         LINE#         16
+  C:0A35H         LINE#         17
+  C:0A38H         LINE#         19
+  C:0A38H         LINE#         20
+  -------         ENDPROC       MAIN
+  -------         PROC          TOGGLE
+  C:098EH         LINE#         23
+  C:0992H         LINE#         25
+  C:0994H         LINE#         26
+  C:09A0H         LINE#         27
+  C:09ACH         LINE#         28
+  C:09B8H         LINE#         29
+  C:09C2H         LINE#         31
+  C:09CEH         LINE#         32
+  -------         ENDPROC       TOGGLE
+  -------         ENDMOD        INTERRUPT_COUNT
+
+  -------         MODULE        ?C?CLDPTR
+  C:0928H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0941H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0977H         PUBLIC        ?C?LLDIIDATA
+  C:096EH         PUBLIC        ?C?LLDIIDATA1
+  C:0970H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 015CH BYTE (16%) *
+******************************************************************************
+
+Program Size: data=67.0 xdata=0 code=594
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

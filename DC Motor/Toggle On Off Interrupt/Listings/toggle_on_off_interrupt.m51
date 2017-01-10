@@ -1,0 +1,128 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/05/2015  22:14:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\toggle_on_off_interrupt.obj TO .\Objects\toggle_on_off_interrupt PRINT (.\Listings
+>> \toggle_on_off_interrupt.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\toggle_on_off_interrupt.obj (TOGGLE_ON_OFF_INTERRUPT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LSTIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_IBP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\toggle_on_off_interrupt (TOGGLE_ON_OFF_INTERRUPT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?C?LIB_DATA
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?TOGGLE_ON_OFF_INTERRUPT
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     003CH     UNIT         ?PR?TOGGLE?TOGGLE_ON_OFF_INTERRUPT
+            CODE    08C8H     002CH     UNIT         ?C?LIB_CODE
+            CODE    08F4H     001EH     UNIT         ?PR?_?DELAY?TOGGLE_ON_OFF_INTERRUPT
+            CODE    0912H     0008H     UNIT         ?PR?MAIN?TOGGLE_ON_OFF_INTERRUPT
+            CODE    091AH     0003H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\toggle_on_off_interrupt (TOGGLE_ON_OFF_INTERRUPT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?TOGGLE?TOGGLE_ON_OFF_INTERRUPT
+  +--> ?PR?_?DELAY?TOGGLE_ON_OFF_INTERRUPT
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?TOGGLE_ON_OFF_INTERRUPT
+  +--> ?C_INITSEG
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/05/2015  22:14:47  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\toggle_on_off_interrupt (TOGGLE_ON_OFF_INTERRUPT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TOGGLE_ON_OFF_INTERRUPT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:088CH         PUBLIC        toggle
+  D:00A8H         PUBLIC        IE
+  C:08F4H         PUBLIC        _?delay
+  B:00B0H.4       PUBLIC        DC_motor
+  B:0020H.0       PUBLIC        state
+  C:0912H         PUBLIC        main
+  D:0088H         PUBLIC        TCON
+  -------         PROC          _?DELAY
+  i:0000H         SYMBOL        d
+  C:08F4H         LINE#         4
+  C:08FEH         LINE#         6
+  C:090BH         LINE#         7
+  -------         ENDPROC       _?DELAY
+  -------         PROC          MAIN
+  C:0912H         LINE#         14
+  C:0912H         LINE#         15
+  C:0912H         LINE#         16
+  C:0915H         LINE#         17
+  C:0918H         LINE#         19
+  -------         ENDPROC       MAIN
+  -------         PROC          TOGGLE
+  C:088CH         LINE#         22
+  C:08A3H         LINE#         24
+  C:08A8H         LINE#         25
+  C:08B3H         LINE#         26
+  -------         ENDPROC       TOGGLE
+  -------         ENDMOD        TOGGLE_ON_OFF_INTERRUPT
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08D1H         PUBLIC        ?C?LLDIIDATA
+  C:08C8H         PUBLIC        ?C?LLDIIDATA1
+  C:08CAH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        ?C?LSTIDATA
+  C:08E8H         PUBLIC        ?C?LSTIDATA
+  -------         ENDMOD        ?C?LSTIDATA
+
+  -------         MODULE        ?C_IBP
+  D:0008H         PUBLIC        ?C_IBP
+  -------         ENDMOD        ?C_IBP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0067H BYTE ( 5%) *
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/05/2015  22:14:47  PAGE 3
+
+
+******************************************************************************
+
+Program Size: data=10.1 xdata=0 code=291
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

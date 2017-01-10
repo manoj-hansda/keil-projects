@@ -1,0 +1,18 @@
+/***********************************************************************
+* Objective:
+* S/W: Keil uVision 5
+* Author: Manoj Hansda
+*************************************************************************/
+
+#include <REGX51.H>
+
+#include "../../TICO_BOARD.H"                // contains Port and Pin definitions of TICO kit board
+#include "../../functions/keypad.h"          // contains key_detect()
+#include "../../functions/seven_segment.h"   // contains display()
+#include "../../functions/lcd.h"             // contains lcd_init(), send_cmd(), send_data(), send_msg()
+#include "../../functions/delay.h"           // contains delay()
+
+void main()
+{
+
+}

@@ -1,0 +1,247 @@
+BL51 BANKED LINKER/LOCATER V6.15                                                        11/12/2015  23:48:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.15, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE .\Objects\simple_ADC.obj TO .\Objects\simple_ADC PRINT (.\Listings\simple_ADC.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\simple_ADC.obj (SIMPLE_ADC)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\simple_ADC (SIMPLE_ADC)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0030H     UNIT         ?DT?SIMPLE_ADC
+            DATA    0038H     000AH     UNIT         _DATA_GROUP_
+            IDATA   0042H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     00BBH     UNIT         ?C?LIB_CODE
+            CODE    08BBH     009CH     UNIT         ?PR?_DISPLAY?SIMPLE_ADC
+            CODE    0957H     008CH     UNIT         ?C_C51STARTUP
+            CODE    09E3H     0077H     UNIT         ?PR?MAIN?SIMPLE_ADC
+            CODE    0A5AH     0043H     UNIT         ?PR?CONVERT?SIMPLE_ADC
+            CODE    0A9DH     003BH     UNIT         ?C_INITSEG
+            CODE    0AD8H     001EH     UNIT         ?PR?_DELAY?SIMPLE_ADC
+            CODE    0AF6H     0003H     UNIT         ?PR?ACTION?SIMPLE_ADC
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\simple_ADC (SIMPLE_ADC)
+
+
+SEGMENT                           DATA_GROUP 
+  +--> CALLED SEGMENT           START    LENGTH
+-----------------------------------------------
+?C_C51STARTUP                   -----    -----
+  +--> ?PR?MAIN?SIMPLE_ADC
+  +--> ?C_INITSEG
+
+?PR?MAIN?SIMPLE_ADC             -----    -----
+  +--> ?PR?_DELAY?SIMPLE_ADC
+BL51 BANKED LINKER/LOCATER V6.15                                                      11/12/2015  23:48:10  PAGE 2
+
+
+  +--> ?PR?CONVERT?SIMPLE_ADC
+  +--> ?PR?_DISPLAY?SIMPLE_ADC
+
+?PR?_DELAY?SIMPLE_ADC           003EH    0004H
+
+?PR?CONVERT?SIMPLE_ADC          0038H    0004H
+
+?PR?_DISPLAY?SIMPLE_ADC         0038H    0006H
+  +--> ?PR?_DELAY?SIMPLE_ADC
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\simple_ADC (SIMPLE_ADC)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SIMPLE_ADC
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  C:0AF6H         PUBLIC        action
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0A5AH         PUBLIC        convert
+  D:00A8H         PUBLIC        IE
+  B:00B0H.4       PUBLIC        clock
+  D:0008H         PUBLIC        char_codes
+  C:0AE0H         PUBLIC        _delay
+  B:00B0H.5       PUBLIC        OE
+  B:00B0H.2       PUBLIC        SC
+  B:00A0H.2       PUBLIC        hund_tr_ca
+  C:09E3H         PUBLIC        main
+  B:00A0H.1       PUBLIC        tens_tr_ca
+  B:00A0H.3       PUBLIC        thou_tr_ca
+  B:00A0H.0       PUBLIC        unit_tr_ca
+  D:001CH         PUBLIC        hund
+  D:0089H         PUBLIC        TMOD
+  B:0090H.4       PUBLIC        led_pwr_tr
+  D:001DH         PUBLIC        tens
+  D:001EH         PUBLIC        thou
+  D:001FH         PUBLIC        unit
+  D:0020H         PUBLIC        num_codes
+  D:002AH         PUBLIC        val
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:002DH         PUBLIC        tmp
+  B:00B0H.2       PUBLIC        ALE
+  B:0088H.4       PUBLIC        TR0
+  B:00B0H.3       PUBLIC        EOC
+  B:00B0H.6       PUBLIC        ADD_A
+  B:00B0H.7       PUBLIC        ADD_B
+  C:08BBH         PUBLIC        _display
+  D:002EH         PUBLIC        alpha_codes
+  C:0AD8H         SYMBOL        L?0015
+  C:0ADAH         SYMBOL        L?0016
+  -------         PROC          L?0014
+BL51 BANKED LINKER/LOCATER V6.15                                                      11/12/2015  23:48:10  PAGE 3
+
+
+  -------         ENDPROC       L?0014
+  C:0AD8H         SYMBOL        L?0015
+  C:0ADAH         SYMBOL        L?0016
+  -------         PROC          _DELAY
+  D:003EH         SYMBOL        d
+  C:0AE0H         LINE#         4
+  C:0AE8H         LINE#         5
+  C:0AE8H         LINE#         6
+  C:0AF5H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAY
+  D:0038H         SYMBOL        codes
+  D:003BH         SYMBOL        datas
+  C:08BBH         LINE#         12
+  C:08C1H         LINE#         13
+  C:08C1H         LINE#         14
+  C:08DDH         LINE#         15
+  C:08DFH         LINE#         16
+  C:08E2H         LINE#         17
+  C:08E4H         LINE#         19
+  C:0903H         LINE#         20
+  C:0905H         LINE#         21
+  C:0908H         LINE#         22
+  C:090AH         LINE#         24
+  C:0929H         LINE#         25
+  C:092BH         LINE#         26
+  C:092EH         LINE#         27
+  C:0930H         LINE#         29
+  C:094FH         LINE#         30
+  C:0951H         LINE#         31
+  C:0954H         LINE#         32
+  C:0956H         LINE#         33
+  -------         ENDPROC       _DISPLAY
+  -------         PROC          MAIN
+  C:09E3H         LINE#         15
+  C:09E3H         LINE#         16
+  C:09E3H         LINE#         17
+  C:09E6H         LINE#         18
+  C:09E9H         LINE#         19
+  C:09ECH         LINE#         20
+  C:09EFH         LINE#         21
+  C:09F1H         LINE#         22
+  C:09F3H         LINE#         23
+  C:09F6H         LINE#         24
+  C:09F9H         LINE#         25
+  C:09FCH         LINE#         26
+  C:09FEH         LINE#         27
+  C:0A01H         LINE#         29
+  C:0A03H         LINE#         30
+  C:0A05H         LINE#         31
+  C:0A07H         LINE#         32
+  C:0A09H         LINE#         33
+  C:0A0BH         LINE#         34
+  C:0A0DH         LINE#         36
+  C:0A0DH         LINE#         37
+  C:0A0DH         LINE#         38
+  C:0A11H         LINE#         40
+BL51 BANKED LINKER/LOCATER V6.15                                                      11/12/2015  23:48:10  PAGE 4
+
+
+  C:0A1AH         LINE#         42
+  C:0A23H         LINE#         44
+  C:0A26H         LINE#         45
+  C:0A29H         LINE#         47
+  C:0A2CH         LINE#         48
+  C:0A2EH         LINE#         49
+  C:0A31H         LINE#         50
+  C:0A33H         LINE#         52
+  C:0A36H         LINE#         53
+  C:0A39H         LINE#         54
+  C:0A42H         LINE#         55
+  C:0A51H         LINE#         56
+  C:0A56H         LINE#         57
+  C:0A58H         LINE#         58
+  -------         ENDPROC       MAIN
+  -------         PROC          CONVERT
+  -------         DO            
+  D:0038H         SYMBOL        value
+  -------         ENDDO         
+  C:0A5AH         LINE#         61
+  C:0A5AH         LINE#         62
+  C:0A5AH         LINE#         65
+  C:0A63H         LINE#         66
+  C:0A70H         LINE#         67
+  C:0A7DH         LINE#         68
+  C:0A8AH         LINE#         70
+  C:0A96H         LINE#         71
+  C:0A9CH         LINE#         72
+  -------         ENDPROC       CONVERT
+  -------         PROC          ACTION
+  C:0AF6H         LINE#         74
+  C:0AF6H         LINE#         76
+  C:0AF8H         LINE#         77
+  -------         ENDPROC       ACTION
+  -------         ENDMOD        SIMPLE_ADC
+
+  -------         MODULE        ?C?CLDPTR
+  C:0800H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0819H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?UIDIV
+  C:0846H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:08A4H         PUBLIC        ?C?LLDIIDATA
+  C:089BH         PUBLIC        ?C?LLDIIDATA1
+  C:089DH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01B4H BYTE (21%) *
+******************************************************************************
+BL51 BANKED LINKER/LOCATER V6.15                                                      11/12/2015  23:48:10  PAGE 5
+
+
+
+Program Size: data=67.0 xdata=0 code=767
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

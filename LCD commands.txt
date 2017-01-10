@@ -1,0 +1,54 @@
+commands (rs=0):
+----------------
+clear display: 0x01
+
+cursor at home: 0 0 0 0   0 0 1 * : 0x02, 0x03
+
+     entry mode set:  0 0 0 0   0 1 I/D S
+------------------------------------------
+   increment cursor:  0 0 0 0   0 1  1  0 : 0x06
+   decrement cursor:  0 0 0 0   0 1  0  0 : 0x04
+ shift display left:  0 0 0 0   0 1  1  1 : 0x07
+shift display right:  0 0 0 0   0 1  0  1 : 0x05
+
+display on/off control:  0 0 0 0   1 D C B
+------------------------------------------
+           display off:  0 0 0 0   0 1 1 0 : 0x06
+            cursor off:  0 0 0 0   0 1 0 0 : 0x04
+             blink off:  0 0 0 0   0 1 1 1 : 0x07
+              blink on:  0 0 0 0   0 1 0 1 : 0x05
+
+    cursor or display shift:  0 0 0 1   S/C R/L * *
+---------------------------------------------------
+         shifts cursor left:  0 0 0 1    0   0  0 0 : 0x10
+        shifts cursor right:  0 0 0 1    0   1  0 0 : 0x14
+ shifts entire display left:  0 0 0 1    1   0  0 0 : 0x18
+shifts entire display right:  0 0 0 1    1   1  0 0 : 0x1C
+
+            function set:  0 0 1 DL   N F * *
+---------------------------------------------
+ 4-bit, 1-line, 5x7-font:  0 0 1 0    0 0 0 0 : 0x20
+4-bit, 1-line, 5x10-font:  0 0 1 0    0 1 0 0 : 0x24
+ 4-bit, 2-line, 5x7-font:  0 0 1 0    1 0 0 0 : 0x28
+ 8-bit, 1-line, 5x7-font:  0 0 1 1    0 0 0 0 : 0x30
+8-bit, 1-line, 5x10-font:  0 0 1 1    0 1 0 0 : 0x34
+ 8-bit, 2-line, 5x7-font:  0 0 1 1    1 0 0 0 : 0x38
+
+         set DD RAM address:  1  B6 B5 B4   B3 B2 B1 B0
+-------------------------------------------------------
+for N=0 (1-line display)
+              first address:  1  0  0  0    0  0  0  0 : 0x80
+         (80th)last address:  1  1  0  0    1  1  1  1 : 0xCF
+               16th address:  1  0  0  0    1  1  1  1 : 0x8F
+
+for N=1 (2-line display)
+       line-1 first address:  1  0  0  0    0  0  0  0 : 0x80
+ line-1 (40th) last address:  1  0  1  0    0  1  1  1 : 0xA7
+        line-1 16th address:  1  0  0  0    1  1  1  1 : 0x8F
+       line-2 first address:  1  1  0  0    0  0  0  0 : 0xC0
+ line-2 (40th) last address:  1  1  1  0    0  1  1  1 : 0xE7
+        line-2 16th address:  1  1  0  0    1  1  1  1 : 0xCF
+
+Data (rs=1):
+------------
+space code: 0x20

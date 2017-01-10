@@ -1,0 +1,76 @@
+C51 COMPILER V9.54   SERIAL_TX                                                             11/12/2015 22:11:19 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE SERIAL_TX
+OBJECT MODULE PLACED IN .\Objects\serial_tx.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE serial_tx.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\serial_tx.lst) TABS(2) OBJECT(.\Objects\serial_tx.obj)
+
+line level    source
+
+   1          /***********************************************************
+   2          * Objective: Serial transmission on UART from 4x3 keypad
+   3          * S/W: Keil uVision 5
+   4          * Author: Manoj Hansda
+   5          *************************************************************/
+   6          
+   7          #include <REGX51.H>
+   8          
+   9          #include "../../functions/keypad.h"          // contains key_detect()
+  10          #include "../../functions/lcd.h"             // contains send_cmd(), send_data(), send_msg()
+  11          
+  12          void key_action(unsigned char);
+  13          
+  14          unsigned char *key_pressed, flag=0;
+  15          
+  16          void main()
+  17          {
+  18   1        delay(1275);
+  19   1        lcd_init();
+  20   1        
+  21   1        IE=0x90;
+  22   1        TMOD=0x20;
+  23   1        TH1=0xFD;
+  24   1        SCON=0x50;
+  25   1        TR1=1;
+  26   1        
+  27   1        while(1)
+  28   1          key_pressed=key_detect();
+  29   1      }
+  30          
+  31          void serial() interrupt 4
+  32          { 
+  33   1        if(key_pressed[0]!='\0')
+  34   1          {
+  35   2            ES=0;
+  36   2            if(flag==0)
+  37   2            key_action(key_pressed[0]);
+  38   2            ES=1;
+  39   2          }
+  40   1        else
+  41   1          flag=0;
+  42   1      }
+  43          
+  44          void key_action(unsigned char value)
+  45          {
+  46   1          send_data(value);
+  47   1          SBUF=value;
+  48   1          TI=0;
+  49   1          flag=1;
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    533    ----
+C51 COMPILER V9.54   SERIAL_TX                                                             11/12/2015 22:11:19 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

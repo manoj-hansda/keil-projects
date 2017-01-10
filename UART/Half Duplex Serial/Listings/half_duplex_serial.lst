@@ -1,0 +1,51 @@
+C51 COMPILER V9.54   HALF_DUPLEX_SERIAL                                                    11/02/2015 20:14:20 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE HALF_DUPLEX_SERIAL
+OBJECT MODULE PLACED IN .\Objects\half_duplex_serial.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE half_duplex_serial.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\half_duplex_serial.lst) TABS(2) OBJECT(.\Objects\half_duplex_serial.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          #define led_port P0
+   3          
+   4          sbit led_pwr_tr=P1^4;
+   5          
+   6          void main()
+   7          {
+   8   1        led_pwr_tr=0;
+   9   1        
+  10   1        IE=0x90;
+  11   1        TMOD=0x20;
+  12   1        TH1=0xFD;
+  13   1        SCON=0x50;
+  14   1        TR1=1;
+  15   1        
+  16   1        while(1);
+  17   1      }
+  18          
+  19          void serial() interrupt 4
+  20          {
+  21   1        if(RI==1)
+  22   1        {
+  23   2          led_port=SBUF;
+  24   2          RI=0;
+  25   2        }
+  26   1      
+  27   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     27    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

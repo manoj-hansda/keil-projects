@@ -1,0 +1,229 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  22:05:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\serial_rx.obj TO .\Objects\serial_rx PRINT (.\Listings\serial_rx.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\serial_rx.obj (SERIAL_RX)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\serial_rx (SERIAL_RX)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            DATA    0010H     0004H     UNIT         ?DT?_SEND_MSG?SERIAL_RX
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0066H     UNIT         ?C?LIB_CODE
+            CODE    0866H     0032H     UNIT         ?PR?_SEND_MSG?SERIAL_RX
+            CODE    0898H     002EH     UNIT         ?PR?SERIAL?SERIAL_RX
+            CODE    08C6H     0023H     UNIT         ?PR?LCD_INIT?SERIAL_RX
+            CODE    08E9H     0020H     UNIT         ?PR?_DELAY?SERIAL_RX
+            CODE    0909H     0020H     UNIT         ?PR?_SEND_DATA?SERIAL_RX
+            CODE    0929H     001AH     UNIT         ?PR?MAIN?SERIAL_RX
+            CODE    0943H     0018H     UNIT         ?PR?_SEND_CMD?SERIAL_RX
+            CODE    095BH     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0970H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\serial_rx (SERIAL_RX)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?PR?SERIAL?SERIAL_RX             -----    -----
+  +--> ?PR?_SEND_DATA?SERIAL_RX
+
+?PR?_SEND_DATA?SERIAL_RX         -----    -----
+  +--> ?PR?_DELAY?SERIAL_RX
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:05:33  PAGE 2
+
+
+
+?PR?_DELAY?SERIAL_RX             000CH    0004H
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?SERIAL_RX
+
+?PR?MAIN?SERIAL_RX               -----    -----
+  +--> ?PR?_DELAY?SERIAL_RX
+  +--> ?PR?LCD_INIT?SERIAL_RX
+
+?PR?LCD_INIT?SERIAL_RX           -----    -----
+  +--> ?PR?_SEND_CMD?SERIAL_RX
+
+?PR?_SEND_CMD?SERIAL_RX          -----    -----
+  +--> ?PR?_DELAY?SERIAL_RX
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\serial_rx (SERIAL_RX)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SERIAL_RX
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0898H         PUBLIC        serial
+  D:00A8H         PUBLIC        IE
+  C:08F3H         PUBLIC        _delay
+  B:0098H.0       PUBLIC        RI
+  C:0929H         PUBLIC        main
+  C:0909H         PUBLIC        _send_data
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0943H         PUBLIC        _send_cmd
+  C:08C6H         PUBLIC        lcd_init
+  D:008DH         PUBLIC        TH1
+  B:00A0H.5       PUBLIC        en
+  C:0866H         PUBLIC        _send_msg
+  B:0088H.6       PUBLIC        TR1
+  B:00A0H.4       PUBLIC        rs
+  C:08EDH         SYMBOL        L?0017
+  C:08EFH         SYMBOL        L?0018
+  -------         PROC          L?0016
+  -------         ENDPROC       L?0016
+  C:08EDH         SYMBOL        L?0017
+  C:08EFH         SYMBOL        L?0018
+  -------         PROC          _DELAY
+  D:000CH         SYMBOL        d
+  C:08F3H         LINE#         4
+  C:08FBH         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:05:33  PAGE 3
+
+
+  C:08FBH         LINE#         6
+  C:0908H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          LCD_INIT
+  C:08C6H         LINE#         14
+  C:08C6H         LINE#         15
+  C:08C6H         LINE#         16
+  C:08D5H         LINE#         17
+  C:08DAH         LINE#         18
+  C:08DFH         LINE#         19
+  C:08E4H         LINE#         20
+  -------         ENDPROC       LCD_INIT
+  -------         PROC          _SEND_CMD
+  D:0003H         SYMBOL        value
+  C:0943H         LINE#         23
+  C:0945H         LINE#         24
+  C:0945H         LINE#         25
+  C:0947H         LINE#         26
+  C:0949H         LINE#         27
+  C:094EH         LINE#         28
+  C:0953H         LINE#         29
+  C:0955H         LINE#         30
+  C:095AH         LINE#         31
+  -------         ENDPROC       _SEND_CMD
+  -------         PROC          _SEND_DATA
+  D:0003H         SYMBOL        value
+  C:0909H         LINE#         33
+  C:090BH         LINE#         34
+  C:090BH         LINE#         35
+  C:090DH         LINE#         36
+  C:090FH         LINE#         37
+  C:0918H         LINE#         38
+  C:091DH         LINE#         39
+  C:091FH         LINE#         40
+  C:0928H         LINE#         41
+  -------         ENDPROC       _SEND_DATA
+  -------         PROC          _SEND_MSG
+  D:0010H         SYMBOL        msg
+  -------         DO            
+  D:0013H         SYMBOL        i
+  -------         ENDDO         
+  C:0866H         LINE#         43
+  C:086CH         LINE#         44
+  C:086CH         LINE#         46
+  C:0880H         LINE#         47
+  C:0897H         LINE#         48
+  -------         ENDPROC       _SEND_MSG
+  -------         PROC          MAIN
+  C:0929H         LINE#         11
+  C:0929H         LINE#         12
+  C:0929H         LINE#         13
+  C:0930H         LINE#         14
+  C:0933H         LINE#         16
+  C:0936H         LINE#         17
+  C:0939H         LINE#         18
+  C:093CH         LINE#         19
+  C:093FH         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:05:33  PAGE 4
+
+
+  C:0941H         LINE#         22
+  -------         ENDPROC       MAIN
+  -------         PROC          SERIAL
+  C:0898H         LINE#         25
+  C:08ABH         LINE#         27
+  C:08AEH         LINE#         28
+  C:08AEH         LINE#         29
+  C:08B3H         LINE#         30
+  C:08B5H         LINE#         31
+  C:08B5H         LINE#         32
+  -------         ENDPROC       SERIAL
+  -------         ENDMOD        SERIAL_RX
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0800H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:0836H         PUBLIC        ?C?LLDIIDATA
+  C:082DH         PUBLIC        ?C?LLDIIDATA1
+  C:082FH         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        STRLEN
+  C:095BH         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:084DH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_MSG?SERIAL_RX
+
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_DELAY?SERIAL_RX
+    CALLER1: ?PR?SERIAL?SERIAL_RX
+    CALLER2: ?C_C51STARTUP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00F8H BYTE (12%) *
+******************************************************************************
+
+Program Size: data=21.0 xdata=0 code=386
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

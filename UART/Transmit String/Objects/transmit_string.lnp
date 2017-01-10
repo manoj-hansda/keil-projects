@@ -1,0 +1,3 @@
+".\Objects\transmit_string.obj" 
+TO ".\Objects\transmit_string" 
+PRINT(".\Listings\transmit_string.m51") RAMSIZE(256) 

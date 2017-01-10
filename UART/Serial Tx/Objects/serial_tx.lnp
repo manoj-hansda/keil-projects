@@ -1,0 +1,3 @@
+".\Objects\serial_tx.obj" 
+TO ".\Objects\serial_tx" 
+PRINT(".\Listings\serial_tx.m51") RAMSIZE(256) 

@@ -1,0 +1,214 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2015  22:18:14  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\transmit_string.obj TO .\Objects\transmit_string PRINT (.\Listings\transmit_string
+>> .m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\transmit_string.obj (TRANSMIT_STRING)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?LLDIIDATA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (STRLEN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\transmit_string (TRANSMIT_STRING)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0071H     UNIT         ?DT?TRANSMIT_STRING
+            DATA    0079H     0004H     UNIT         _DATA_GROUP_
+            IDATA   007DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0085H     UNIT         ?PR?SHOW_DATA2?TRANSMIT_STRING
+            CODE    0911H     0072H     UNIT         ?C_INITSEG
+            CODE    0983H     005BH     UNIT         ?PR?SERIAL?TRANSMIT_STRING
+            CODE    09DEH     0039H     UNIT         ?C?LIB_CODE
+            CODE    0A17H     0026H     UNIT         ?PR?SHOW_DATA?TRANSMIT_STRING
+            CODE    0A3DH     0024H     UNIT         ?PR?_DELAY?TRANSMIT_STRING
+            CODE    0A61H     0015H     UNIT         ?PR?_STRLEN?STRLEN
+            CODE    0A76H     0010H     UNIT         ?PR?MAIN?TRANSMIT_STRING
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\transmit_string (TRANSMIT_STRING)
+
+
+SEGMENT                                  DATA_GROUP 
+  +--> CALLED SEGMENT                  START    LENGTH
+------------------------------------------------------
+?PR?SERIAL?TRANSMIT_STRING             -----    -----
+  +--> ?PR?SHOW_DATA?TRANSMIT_STRING
+  +--> ?PR?SHOW_DATA2?TRANSMIT_STRING
+
+?PR?SHOW_DATA?TRANSMIT_STRING          -----    -----
+  +--> ?PR?_STRLEN?STRLEN
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:18:14  PAGE 2
+
+
+  +--> ?PR?_DELAY?TRANSMIT_STRING
+
+?PR?_DELAY?TRANSMIT_STRING             0079H    0004H
+
+?PR?SHOW_DATA2?TRANSMIT_STRING         -----    -----
+  +--> ?PR?_STRLEN?STRLEN
+  +--> ?PR?_DELAY?TRANSMIT_STRING
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                          -----    -----
+  +--> ?PR?MAIN?TRANSMIT_STRING
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\transmit_string (TRANSMIT_STRING)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRANSMIT_STRING
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0983H         PUBLIC        serial
+  D:00A8H         PUBLIC        IE
+  C:0A4BH         PUBLIC        _delay
+  B:0098H.0       PUBLIC        RI
+  D:0008H         PUBLIC        flag
+  B:0098H.1       PUBLIC        TI
+  C:0A76H         PUBLIC        main
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:0A17H         PUBLIC        show_data
+  D:008DH         PUBLIC        TH1
+  B:0088H.6       PUBLIC        TR1
+  D:0009H         PUBLIC        str
+  D:0018H         PUBLIC        j
+  D:0019H         PUBLIC        k
+  D:001AH         PUBLIC        p
+  C:088CH         PUBLIC        show_data2
+  D:001BH         PUBLIC        show1
+  D:003BH         PUBLIC        show2
+  D:0044H         PUBLIC        show3
+  D:0067H         PUBLIC        show4
+  C:0A3DH         SYMBOL        L?0031
+  C:0A43H         SYMBOL        L?0032
+  -------         PROC          L?0030
+  -------         ENDPROC       L?0030
+  C:0A3DH         SYMBOL        L?0031
+  C:0A43H         SYMBOL        L?0032
+  -------         PROC          _DELAY
+  D:0079H         SYMBOL        d
+  C:0A4BH         LINE#         4
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:18:14  PAGE 3
+
+
+  C:0A53H         LINE#         5
+  C:0A53H         LINE#         6
+  C:0A60H         LINE#         7
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:0A76H         LINE#         22
+  C:0A76H         LINE#         23
+  C:0A76H         LINE#         25
+  C:0A79H         LINE#         26
+  C:0A7CH         LINE#         27
+  C:0A7FH         LINE#         28
+  C:0A82H         LINE#         29
+  C:0A84H         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         PROC          SERIAL
+  C:0983H         LINE#         34
+  C:09A0H         LINE#         36
+  C:09A3H         LINE#         37
+  C:09A3H         LINE#         38
+  C:09A8H         LINE#         39
+  C:09A8H         LINE#         40
+  C:09AAH         LINE#         41
+  C:09B3H         LINE#         42
+  C:09B6H         LINE#         43
+  C:09B8H         LINE#         45
+  C:09B8H         LINE#         46
+  C:09BFH         LINE#         47
+  C:09C1H         LINE#         48
+  C:09C3H         LINE#         49
+  C:09C3H         LINE#         50
+  C:09C3H         LINE#         51
+  -------         ENDPROC       SERIAL
+  -------         PROC          SHOW_DATA
+  C:0A17H         LINE#         53
+  C:0A17H         LINE#         54
+  C:0A17H         LINE#         55
+  C:0A2BH         LINE#         56
+  C:0A2BH         LINE#         57
+  C:0A32H         LINE#         58
+  C:0A36H         LINE#         59
+  C:0A39H         LINE#         60
+  C:0A3CH         LINE#         61
+  -------         ENDPROC       SHOW_DATA
+  -------         PROC          SHOW_DATA2
+  C:088CH         LINE#         63
+  C:088CH         LINE#         64
+  C:088CH         LINE#         65
+  C:08A0H         LINE#         66
+  C:08A0H         LINE#         67
+  C:08A7H         LINE#         68
+  C:08ABH         LINE#         69
+  C:08BFH         LINE#         70
+  C:08BFH         LINE#         71
+  C:08C6H         LINE#         72
+  C:08CAH         LINE#         73
+  C:08DEH         LINE#         74
+  C:08DEH         LINE#         75
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/12/2015  22:18:14  PAGE 4
+
+
+  C:08E5H         LINE#         76
+  C:08E9H         LINE#         78
+  C:08F1H         LINE#         80
+  C:0905H         LINE#         81
+  C:0905H         LINE#         82
+  C:090CH         LINE#         83
+  C:0910H         LINE#         84
+  -------         ENDPROC       SHOW_DATA2
+  -------         ENDMOD        TRANSMIT_STRING
+
+  -------         MODULE        ?C?LLDIIDATA
+  C:09E7H         PUBLIC        ?C?LLDIIDATA
+  C:09DEH         PUBLIC        ?C?LLDIIDATA1
+  C:09E0H         PUBLIC        ?C?LLDIIDATA8
+  -------         ENDMOD        ?C?LLDIIDATA
+
+  -------         MODULE        STRLEN
+  C:0A61H         PUBLIC        _STRLEN
+  -------         ENDMOD        STRLEN
+
+  -------         MODULE        ?C?CLDPTR
+  C:09FEH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 01AEH BYTE (20%) *
+******************************************************************************
+
+Program Size: data=126.0 xdata=0 code=652
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

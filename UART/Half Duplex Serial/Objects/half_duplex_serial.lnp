@@ -1,0 +1,3 @@
+".\Objects\half_duplex_serial.obj" 
+TO ".\Objects\half_duplex_serial" 
+PRINT(".\Listings\half_duplex_serial.m51") RAMSIZE(256) 
